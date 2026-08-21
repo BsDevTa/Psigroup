@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSIGroup — Gente certa. No lugar certo.</title>
+<meta name="description" content="Consultoria diagnóstica gratuita da PSIGroup: identifique os gargalos da sua operação e receba um plano de ação prático em Pessoas, Operação, Facilities, Saúde e Gestão.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="js-nav-closed">
+
+<!-- ========== HEADER ========== -->
+<header class="site-header">
+  <div class="wrap header__inner">
+    <a href="#" class="logo">
+      <span class="logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="30" height="30"><rect x="2" y="4" width="4" height="16" rx="1" fill="currentColor"/><rect x="10" y="8" width="4" height="12" rx="1" fill="currentColor"/><rect x="18" y="2" width="4" height="18" rx="1" fill="var(--gold)"/></svg>
+      </span>
+      <span class="logo__text">
+        <strong>PSI<em>Group</em></strong>
+        <small>Gente certa. No lugar certo.</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#" class="is-active">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#unidades">Unidades</a></li>
+        <li><a href="#solucoes">Diagnóstico gratuito</a></li>
+        <li class="has-dropdown">
+          <button class="nav-dropdown-trigger" id="servicosTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="servicosMenu">
+            Serviços
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-caret"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <ul class="nav-dropdown" id="servicosMenu" role="menu" aria-label="Nossos serviços">
+            <li role="none"><a role="menuitem" href="/tudolimpo">
+              <strong>Tudolimpo</strong><span>Limpeza e conservação</span>
+            </a></li>
+            <li role="none"><a role="menuitem" href="/contrateexpress">
+              <strong>ContrateExpress</strong><span>Recrutamento e seleção</span>
+            </a></li>
+            <li role="none"><span class="nav-dropdown__soon" aria-disabled="true">
+              <strong>TerceirizaJá</strong><span>Em breve</span>
+            </span></li>
+            <li role="none"><span class="nav-dropdown__soon" aria-disabled="true">
+              <strong>OnlyMed</strong><span>Em breve</span>
+            </span></li>
+          </ul>
+        </li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#presenca">Onde estamos</a></li>
+        <li><a href="#carreiras">Carreiras</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <a href="#contato" class="btn btn--gold btn--sm header__cta">
+      Fale com um especialista
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ========== HERO (100vh, vídeo de fundo) ========== -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <img class="hero__bg-image" src="assets/hero-team.jpg" alt="">
+      <!-- Sem asset de vídeo ainda: troque o <source> abaixo pelo arquivo real (mp4, ~10-20s, sem áudio). -->
+      <video class="hero__video" autoplay muted loop playsinline preload="none" poster="assets/hero-team.jpg">
+        <!-- <source src="assets/video/hero.mp4" type="video/mp4"> -->
+      </video>
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+
+    <div class="wrap hero__inner">
+      <p class="hero__kicker">
+        Nem toda necessidade precisa da mesma solução,<br>
+        <span class="text-gold">mas toda solução começa pelas Pessoas!</span>
+      </p>
+      <div class="hero__wordmark">
+        <strong>PSIGroup</strong>
+        <span>Gente certa. No lugar certo.</span>
+      </div>
+      <div class="hero__actions">
+        <a href="#ecossistema" class="btn btn--gold">Conheça nosso Ecossistema</a>
+        <a href="#solucoes" class="hero__quiz-link">Prefere ir direto ao diagnóstico gratuito? →</a>
+      </div>
+    </div>
+
+    <a href="#ecossistema" class="hero__scroll-cue" aria-label="Rolar para conhecer o ecossistema">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </a>
+  </section>
+
+  <!-- ========== ECOSSISTEMA (linha do tempo animada) ========== -->
+  <section class="ecosystem" id="ecossistema">
+    <div class="wrap ecosystem__inner">
+      <div class="ecosystem__head" data-reveal>
+        <span class="eyebrow">Nosso ecossistema</span>
+        <h2>Um ecossistema completo,<br>integrado e feito para gerar valor.</h2>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline__item" data-reveal data-tone="coral">
+          <span class="timeline__badge">CE</span>
+          <div class="timeline__content">
+            <h3>ContrateExpress</h3>
+            <p>Encontramos as pessoas certas para as suas vagas, enquanto você cuida dos negócios.</p>
+          </div>
+        </li>
+        <li class="timeline__arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </li>
+        <li class="timeline__item" data-reveal data-tone="violet">
+          <span class="timeline__badge">TJ</span>
+          <div class="timeline__content">
+            <h3>TerceirizaJá</h3>
+            <p>Mantemos operações funcionando através de nossas pessoas em sua equipe.</p>
+          </div>
+        </li>
+        <li class="timeline__arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </li>
+        <li class="timeline__item" data-reveal data-tone="green">
+          <span class="timeline__badge">OM</span>
+          <div class="timeline__content">
+            <h3>OnlyMed</h3>
+            <p>Consultas de telemedicina para o seu autocuidado, ou cuidado com as pessoas que você queira cuidar.</p>
+          </div>
+        </li>
+        <li class="timeline__arrow" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </li>
+        <li class="timeline__item" data-reveal data-tone="teal">
+          <span class="timeline__badge">TL</span>
+          <div class="timeline__content">
+            <h3>Tudolimpo</h3>
+            <p>Agenciamos diaristas, preservando o seu ambiente, seu patrimônio, e você tenha tempo livre para outras pessoas.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== SOBRE (mapa neural animado) ========== -->
+  <section class="about" id="sobre">
+    <div class="wrap about__grid">
+      <div class="about__copy" data-reveal>
+        <h2>Sobre a <span class="text-gold">PSIGroup</span></h2>
+        <p>A PSIGroup expandiu com o desenvolvimento do &ldquo;Psicólogo de Empresas&rdquo; e da certeza de que grandes negócios começam com pessoas. Mais do que prestar serviços, construímos conexões que geram oportunidades, transformam vidas e impulsionam negócios.</p>
+        <p><strong>Nossa missão é transformar clientes em fãs por meio de pessoas gerando valor para outras pessoas.</strong></p>
+        <a href="#" class="btn btn--outline">
+          Nossa história
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="about__diagram" data-reveal aria-hidden="true">
+        <svg viewBox="0 0 460 460" class="orbit-lines">
+          <circle class="orbit-ring" cx="230" cy="230" r="150" fill="none" stroke="#D8D8D2" stroke-width="1.5"/>
+          <line class="orbit-link" x1="230" y1="230" x2="230" y2="80"/>
+          <line class="orbit-link" x1="230" y1="230" x2="380" y2="230"/>
+          <line class="orbit-link" x1="230" y1="230" x2="230" y2="380"/>
+          <line class="orbit-link" x1="230" y1="230" x2="80" y2="230"/>
+        </svg>
+        <div class="orbit-center">
+          <svg viewBox="0 0 24 24" width="34" height="34"><rect x="2" y="6" width="4" height="14" rx="1" fill="#fff"/><rect x="10" y="10" width="4" height="10" rx="1" fill="#fff"/><rect x="18" y="3" width="4" height="17" rx="1" fill="var(--gold)"/></svg>
+        </div>
+
+        <div class="orbit-node" style="--x:0; --y:-150; --d:0" data-c="coral">
+          <span class="orbit-dot"></span>
+          <div class="orbit-label orbit-label--right"><strong>ContrateExpress</strong><small>Recrutamento, seleção e mentoria</small></div>
+        </div>
+        <div class="orbit-node" style="--x:150; --y:0; --d:1" data-c="violet">
+          <span class="orbit-dot"></span>
+          <div class="orbit-label orbit-label--right"><strong>TerceirizaJá</strong><small>Mão de obra temporária e terceirizada</small></div>
+        </div>
+        <div class="orbit-node" style="--x:0; --y:150; --d:2" data-c="green">
+          <span class="orbit-dot"></span>
+          <div class="orbit-label orbit-label--right"><strong>OnlyMed</strong><small>Telemedicina e saúde ocupacional</small></div>
+        </div>
+        <div class="orbit-node" style="--x:-150; --y:0; --d:3" data-c="teal">
+          <span class="orbit-dot"></span>
+          <div class="orbit-label orbit-label--left"><strong>Tudolimpo</strong><small>Limpeza e conservação</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== UNIDADES DE NEGÓCIO (hexágonos + números) ========== -->
+  <section class="units" id="unidades">
+    <div class="wrap">
+      <div class="units__intro" data-reveal>
+        <h2>Nossas <span class="text-gold">Unidades de Negócios</span></h2>
+        <p class="units__intro-note">Passe o mouse (ou toque) em cada unidade para conhecer as frentes de atuação.</p>
+      </div>
+
+      <div class="units__layout">
+        <div class="hex-grid">
+          <div class="hex" data-tone="teal" data-reveal tabindex="0">
+            <div class="hex__inner">
+              <h3>Tudolimpo</h3>
+              <ul class="hex__tags">
+                <li>Limpeza</li><li>Conservação</li><li>Facilities</li><li>Residências</li><li>Empresas</li><li>Condomínios</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hex" data-tone="violet" data-reveal tabindex="0">
+            <div class="hex__inner">
+              <h3>TerceirizaJá</h3>
+              <ul class="hex__tags">
+                <li>Terceirização</li><li>Mão de obra temporária</li><li>Operação</li><li>Escala</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hex" data-tone="coral" data-reveal tabindex="0">
+            <div class="hex__inner">
+              <h3>ContrateExpress</h3>
+              <ul class="hex__tags">
+                <li>Contratação de Pessoas</li><li>Treinamentos de Equipes</li><li>Mentorias para RH</li><li>Banco de Talentos</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hex" data-tone="green" data-reveal tabindex="0">
+            <div class="hex__inner">
+              <h3>OnlyMed</h3>
+              <ul class="hex__tags">
+                <li>Consultas e Telemedicina</li><li>Saúde, Orientação e Bem-estar Online</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <aside class="units__stats" data-reveal>
+          <h3>Grandes números</h3>
+          <dl>
+            <div><dt data-count-to="500" data-prefix="+">+500</dt><dd>Profissionais Desenvolvidos</dd></div>
+            <div><dt data-count-to="150" data-prefix="+">+150</dt><dd>Empresas atendidas</dd></div>
+            <div><dt data-count-to="95" data-suffix="%">95%</dt><dd>Satisfação dos clientes atendidos</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COMO FUNCIONA / EXPERIMENTE! ========== -->
+  <section class="how" id="como-funciona">
+    <div class="wrap">
+      <div data-reveal>
+        <span class="eyebrow">Como funciona</span>
+        <h2>Experimente!</h2>
+      </div>
+      <ol class="flow">
+        <li class="flow__item" data-reveal><span class="flow__badge">Você</span><p>Cliente</p></li>
+        <li class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
+        <li class="flow__item" data-reveal><span class="flow__badge">Atendimento Breve</span><p>Diagnóstico</p></li>
+        <li class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
+        <li class="flow__item" data-reveal><span class="flow__badge">Proposta</span><p>Apresentação</p></li>
+        <li class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
+        <li class="flow__item" data-reveal><span class="flow__badge">Contratação</span><p>do Serviço</p></li>
+        <li class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
+        <li class="flow__item" data-reveal><span class="flow__badge">Acompanhamento</span></li>
+        <li class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
+        <li class="flow__item" data-reveal><span class="flow__badge">Suporte</span></li>
+        <li class="flow__arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></li>
+        <li class="flow__item" data-reveal><span class="flow__badge">Resultados</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== NOSSAS SOLUÇÕES (entrada do diagnóstico) ========== -->
+  <section class="solutions" id="solucoes">
+    <div class="wrap solutions__head" data-reveal-pop>
+      <span class="eyebrow">Nossas soluções</span>
+      <h2>Como podemos te ajudar <span class="text-gold">hoje</span>? O que sua empresa precisa resolver hoje?</h2>
+      <p>Saiba como, de forma gratuita!</p>
+    </div>
+
+    <div class="wrap solutions__grid" data-reveal-pop>
+      <button type="button" class="solution-card" data-path="pessoas" data-open-quiz>
+        <span class="solution-card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14c2.8.3 5 2.4 5 5"/></svg></span>
+        <h3>Pessoas</h3>
+        <p>Preciso contratar, substituir ou estruturar minha equipe.</p>
+      </button>
+      <button type="button" class="solution-card" data-path="operacao" data-open-quiz>
+        <span class="solution-card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M2 20c0-3 2.7-5.5 6-5.5S14 17 14 20"/><path d="M13 14.7c2.9.4 5 2.7 5 5.3"/></svg></span>
+        <h3>Operação</h3>
+        <p>Preciso terceirizar ou melhorar uma operação.</p>
+      </button>
+      <button type="button" class="solution-card" data-path="facilities" data-open-quiz>
+        <span class="solution-card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg></span>
+        <h3>Facilities</h3>
+        <p>Preciso de limpeza, conservação ou apoio operacional.</p>
+      </button>
+      <button type="button" class="solution-card" data-path="saude" data-open-quiz>
+        <span class="solution-card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-9.5-9.1C.9 8.3 3 5 6.4 5 8.6 5 10.5 6.3 12 8.4 13.5 6.3 15.4 5 17.6 5 21 5 23.1 8.3 21.5 11.9 19 16.5 12 21 12 21z"/></svg></span>
+        <h3>Saúde</h3>
+        <p>Quero cuidar melhor das pessoas da minha empresa.</p>
+      </button>
+      <button type="button" class="solution-card" data-path="gestao" data-open-quiz>
+        <span class="solution-card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9z"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span>
+        <h3>Gestão e Tecnologia</h3>
+        <p>Quero indicadores, processos e mais controle.</p>
+      </button>
+      <button type="button" class="solution-card" data-path="expansao" data-open-quiz>
+        <span class="solution-card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V4M4 4h10l-2 4 2 4H4"/></svg></span>
+        <h3>Expansão</h3>
+        <p>Quero encontrar um parceiro para crescer.</p>
+      </button>
+    </div>
+  </section>
+
+  <!-- ========== PRESENÇA NACIONAL ========== -->
+  <section class="presence" id="presenca">
+    <div class="wrap presence__inner">
+      <div class="presence__copy" data-reveal>
+        <h2>Para onde estamos <span class="text-gold">indo</span></h2>
+        <p>Hoje já estamos presentes em polos estratégicos do país — e seguimos expandindo o ecossistema PSIGroup por todo o Brasil.</p>
+        <ul class="presence__regions">
+          <li><strong>Nordeste</strong><span>Salvador, Lauro de Freitas, Mata de São João, Feira de Santana, Aracaju</span></li>
+          <li><strong>Centro-Oeste</strong><span>Brasília</span></li>
+          <li><strong>Norte</strong><span>Belém</span></li>
+          <li><strong>Sudeste</strong><span>São Paulo</span></li>
+          <li><strong>Sul</strong><span>Porto Alegre</span></li>
+        </ul>
+      </div>
+
+      <div class="presence__map" data-reveal>
+        <svg viewBox="0 0 340 335" role="img" aria-label="Mapa estilizado do Brasil com as cidades onde a PSIGroup está presente">
+          <path class="presence__silhouette" d="M191,5 L204,43 L333,103 L333,113 L302,153 L261,238 L235,247 L215,268 L175,331 L139,298 L165,261 L136,204 L77,128 L0,106 L94,17 Z"/>
+          <circle class="presence__pin" cx="215" cy="58" r="5"><title>Belém</title></circle>
+          <circle class="presence__pin" cx="312" cy="133" r="5"><title>Aracaju</title></circle>
+          <circle class="presence__pin" cx="300" cy="145" r="5"><title>Mata de São João</title></circle>
+          <circle class="presence__pin" cx="302" cy="153" r="5"><title>Salvador</title></circle>
+          <circle class="presence__pin" cx="306" cy="150" r="5"><title>Lauro de Freitas</title></circle>
+          <circle class="presence__pin" cx="290" cy="150" r="5"><title>Feira de Santana</title></circle>
+          <circle class="presence__pin" cx="215" cy="178" r="5"><title>Brasília</title></circle>
+          <circle class="presence__pin" cx="238" cy="245" r="5"><title>São Paulo</title></circle>
+          <circle class="presence__pin" cx="205" cy="295" r="5"><title>Porto Alegre</title></circle>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA FINAL (fundo totalmente preto) ========== -->
+  <section class="final-cta" id="contato">
+    <div class="wrap final-cta__inner">
+      <div>
+        <h2>Gente certa no lugar certo.</h2>
+        <p>Construímos relações e geramos valor de Pessoas para Pessoas.</p>
+      </div>
+      <div class="final-cta__actions">
+        <a href="https://wa.me/5571988221221" class="btn btn--gold" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.1c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3a8.1 8.1 0 1 1 7.1 3.8z"/></svg>
+          Vamos conversar!
+        </a>
+        <a href="https://instagram.com/psigroupbrasil" class="btn btn--outline-light" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.07 3.3.15 4.7 1.6 4.9 4.9.06 1.2.07 1.6.07 4.8 0 3.2 0 3.6-.07 4.8-.15 3.3-1.6 4.7-4.9 4.9-1.2.06-1.6.07-4.8.07-3.2 0-3.6 0-4.8-.07-3.3-.15-4.7-1.6-4.9-4.9C2.24 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.07-4.8.15-3.3 1.6-4.7 4.9-4.9C8.4 2.2 8.8 2.2 12 2.2zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.3a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.2-8.5a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg>
+          @psigroupbrasil
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="wrap footer__grid">
+
+    <div class="footer__brand">
+      <a href="#" class="logo logo--footer">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26"><rect x="2" y="4" width="4" height="16" rx="1" fill="currentColor"/><rect x="10" y="8" width="4" height="12" rx="1" fill="currentColor"/><rect x="18" y="2" width="4" height="18" rx="1" fill="var(--gold)"/></svg>
+        </span>
+        <span class="logo__text">
+          <strong>PSI<em>Group</em></strong>
+          <small>Gente certa. No lugar certo.</small>
+        </span>
+      </a>
+    </div>
+
+    <nav class="footer__col">
+      <h4>Institucional</h4>
+      <ul><li><a href="#sobre">Sobre nós</a></li><li><a href="#unidades">Unidades</a></li><li><a href="#blog">Blog</a></li><li><a href="#carreiras">Trabalhe conosco</a></li></ul>
+    </nav>
+
+    <nav class="footer__col">
+      <h4>Soluções</h4>
+      <ul><li><a href="#unidades">Tudolimpo</a></li><li><a href="#unidades">TerceirizaJá</a></li><li><a href="/contrateexpress">ContrateExpress</a></li><li><a href="#unidades">OnlyMed</a></li></ul>
+    </nav>
+
+    <nav class="footer__col">
+      <h4>Diagnóstico</h4>
+      <ul><li><a href="#solucoes">Como funciona</a></li><li><a href="#solucoes">Fazer diagnóstico gratuito</a></li></ul>
+    </nav>
+
+    <nav class="footer__col">
+      <h4>Suporte</h4>
+      <ul><li><a href="#">Portal do colaborador</a></li><li><a href="#">Portal do gestor</a></li><li><a href="#">Central de ajuda</a></li></ul>
+    </nav>
+
+    <nav class="footer__col">
+      <h4>Legal</h4>
+      <ul><li><a href="#">Política de Privacidade</a></li><li><a href="#">LGPD</a></li><li><a href="#">Código de Ética</a></li><li><a href="#">Compliance</a></li></ul>
+    </nav>
+
+    <div class="footer__col footer__contact">
+      <h4>Fale conosco</h4>
+      <ul>
+        <li>(71) 98822-1221</li>
+        <li>contato@psigroup.com.br</li>
+      </ul>
+      <div class="social">
+        <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4 0 4.75 2.6 4.75 6V21H17v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg></a>
+        <a href="https://instagram.com/psigroupbrasil" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.07 3.3.15 4.7 1.6 4.9 4.9.06 1.2.07 1.6.07 4.8 0 3.2 0 3.6-.07 4.8-.15 3.3-1.6 4.7-4.9 4.9-1.2.06-1.6.07-4.8.07-3.2 0-3.6 0-4.8-.07-3.3-.15-4.7-1.6-4.9-4.9C2.24 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.07-4.8.15-3.3 1.6-4.7 4.9-4.9C8.4 2.2 8.8 2.2 12 2.2zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.3a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.2-8.5a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7a2.8 2.8 0 0 0-2-2C17.9 5 12 5 12 5s-5.9 0-7.6.3a2.8 2.8 0 0 0-2 2C2 8.8 2 12 2 12s0 3.2.4 4.7a2.8 2.8 0 0 0 2 2C6.1 19 12 19 12 19s5.9 0 7.6-.3a2.8 2.8 0 0 0 2-2c.4-1.5.4-4.7.4-4.7zM10 15.3V8.7l6 3.3-6 3.3z"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap footer__bottom">
+    <p>© <span data-current-year>2026</span> PSIGroup. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/5571988221221" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.1c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3a8.1 8.1 0 1 1 7.1 3.8z"/></svg>
+</a>
+
+<!-- ========== DIAGNÓSTICO GRATUITO (modal) ========== -->
+<div class="quiz" id="quiz" hidden>
+  <div class="quiz__overlay" data-quiz-close></div>
+  <div class="quiz__dialog" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+    <header class="quiz__head">
+      <div class="quiz__progress-track"><span class="quiz__progress-bar" id="quizProgressBar"></span></div>
+      <div class="quiz__head-row">
+        <p class="quiz__step" id="quizStepLabel">Passo 1 de 10</p>
+        <button type="button" class="quiz__close" id="quizCloseBtn" aria-label="Fechar diagnóstico">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="quiz__scroll">
+      <h2 class="quiz__title" id="quizTitle">Vamos entender sua operação!</h2>
+      <div class="quiz__body" id="quizBody"></div>
+    </div>
+
+    <footer class="quiz__foot">
+      <button type="button" class="btn btn--outline" id="quizBackBtn">Voltar</button>
+      <button type="button" class="btn btn--gold" id="quizNextBtn" disabled>Continuar</button>
+    </footer>
+  </div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
