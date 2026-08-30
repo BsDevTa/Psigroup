@@ -1,24 +1,50 @@
 /* ==========================================================================
    PSIGroup — design tokens
+   Paleta e tipografia conforme o manual de identidade (Seção 03 — Cores,
+   Seção 04 — Tipografia). Regra de ouro do sistema: só o elemento central
+   do símbolo e a primeira palavra do logotipo carregam a cor da marca; os
+   demais elementos ficam grafite em fundo claro e branco em fundo escuro.
    ========================================================================== */
+
+/* Aktiv Grotesk Ex é fonte licenciada — não pode ser carregada via CDN.
+   Quando você tiver os arquivos oficiais (woff2), descomente e aponte os
+   caminhos abaixo. Até lá, o sistema cai para Poppins automaticamente,
+   que já é a segunda fonte oficial da marca — o fallback não destoa. */
+/*
+@font-face{
+  font-family: "Aktiv Grotesk Ex";
+  src: url("assets/fonts/AktivGroteskEx-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family: "Aktiv Grotesk Ex";
+  src: url("assets/fonts/AktivGroteskEx-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
 :root{
-  --ink:        #0B0D12;
-  --ink-soft:   #14171F;
-  --ink-card:   #1A1D26;
-  --line-dark:  #2A2E38;
+  --ink:        #232323;
+  --ink-soft:   #2C2C2C;
+  --ink-card:   #333333;
+  --line-dark:  #454545;
 
   --paper:      #F6F5F2;
   --paper-line: #E4E2DC;
 
-  --gold:       #E3A63E;
-  --gold-dark:  #C88E2E;
-  --gold-tint:  #FBEBCB;
+  --gold:       #D4AF37;
+  --gold-dark:  #AB8C2A;
+  --gold-tint:  #F2E9D9;
 
   --white:      #FFFFFF;
-  --ink-body:   #4A4E58;
+  --ink-body:   #4B4844;
 
-  --font-display: "Sora", "Manrope", sans-serif;
-  --font-body:    "Manrope", sans-serif;
+  --font-display: "Aktiv Grotesk Ex", "Poppins", sans-serif;
+  --font-body:    "Poppins", sans-serif;
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -26,7 +52,7 @@
 
   --wrap: 1240px;
 
-  --shadow-card: 0 18px 40px -20px rgba(11,13,18,.35);
+  --shadow-card: 0 18px 40px -20px rgba(35,35,35,.35);
 
   --ok:     #59B24A;
   --warn:   #E3763E;
@@ -93,9 +119,9 @@ svg{ display:block; }
 .btn--gold{
   background: var(--gold);
   color: var(--ink);
-  box-shadow: 0 10px 24px -10px rgba(227,166,62,.7);
+  box-shadow: 0 10px 24px -10px rgba(212,175,55,.7);
 }
-.btn--gold:hover{ background: var(--gold-dark); }
+.btn--gold:hover{ filter: brightness(.9); }
 
 .btn--outline{
   background: transparent;
@@ -135,6 +161,11 @@ svg{ display:block; }
   box-shadow: 0 12px 30px -18px rgba(0,0,0,.6);
 }
 .header__inner{
+  /* Sobrepõe o max-width:1240px herdado de .wrap: com os 10 itens do menu em
+     nowrap, o conteúdo do header precisa de ~1423px para nunca espremer —
+     esse teto maior é exclusivo do header e não afeta o max-width das
+     demais seções (que continuam em --wrap:1240px). */
+  max-width: 1600px;
   display:flex;
   align-items:center;
   gap: 32px;
@@ -144,27 +175,26 @@ svg{ display:block; }
 .logo{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
   color: var(--white);
   flex-shrink:0;
 }
-.logo__mark{ color: var(--white); display:flex; }
-.logo__text{ display:flex; flex-direction:column; line-height:1.1; }
-.logo__text strong{ font-family: var(--font-display); font-size:1.15rem; font-weight:800; letter-spacing:-.02em; }
-.logo__text strong em{ font-style:normal; color: var(--gold); }
-.logo__text small{ font-size:.62rem; color:#9CA0AC; letter-spacing:.02em; }
+.logo__image{ height:34px; width:auto; display:block; }
+.logo--footer .logo__image{ height:30px; }
+.logo__tagline{ font-size:.62rem; color: var(--white); opacity:.65; letter-spacing:.02em; }
 
 .main-nav{ flex:1; display:flex; justify-content:center; }
-.main-nav ul{ display:flex; align-items:center; gap: 28px; }
+.main-nav ul{ display:flex; align-items:center; gap: 20px; }
 .main-nav a{
   color:#C7CAD3;
   font-size: .92rem;
   font-weight:600;
   padding-block: 6px;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
   transition: color .15s ease, border-color .15s ease;
 }
-.main-nav a:hover, .main-nav a.is-active{ color: var(--gold); border-color: var(--gold); }
+.main-nav a:hover, .main-nav a:focus-visible{ color: var(--gold); border-color: var(--gold); }
 
 /* -- Dropdown "Serviços" -- */
 .has-dropdown{ position:relative; }
@@ -223,13 +253,13 @@ svg{ display:block; }
   border-radius: var(--radius-sm);
 }
 .nav-dropdown a{ color:#fff; }
-.nav-dropdown a:hover, .nav-dropdown a:focus-visible{ background: rgba(227,166,62,.12); }
+.nav-dropdown a:hover, .nav-dropdown a:focus-visible{ background: rgba(164,121,62,.12); }
 .nav-dropdown a strong{ font-size:.88rem; font-weight:700; }
-.nav-dropdown a span{ font-size:.74rem; color:#9CA0AC; }
+.nav-dropdown a span{ font-size:.74rem; color:#A8A39A; }
 
 .nav-dropdown__soon{ opacity:.45; cursor: not-allowed; }
 .nav-dropdown__soon strong{ font-size:.88rem; font-weight:700; color:#fff; }
-.nav-dropdown__soon span{ font-size:.74rem; color:#9CA0AC; }
+.nav-dropdown__soon span{ font-size:.74rem; color:#A8A39A; }
 
 .header__cta svg{ transform: rotate(0deg); }
 
@@ -295,8 +325,8 @@ svg{ display:block; }
   overflow:hidden;
   color:#fff;
   background:
-    radial-gradient(60% 60% at 85% 15%, rgba(227,166,62,.18), transparent 70%),
-    linear-gradient(160deg, #1B1E27, #0B0D12 70%);
+    radial-gradient(60% 60% at 85% 15%, rgba(212,175,55,.18), transparent 70%),
+    linear-gradient(160deg, #2E2E2E, var(--ink) 70%);
 }
 .hero__bg{ position:absolute; inset:0; z-index:0; }
 .hero__bg-image{
@@ -335,17 +365,9 @@ svg{ display:block; }
   letter-spacing:-.01em;
 }
 .hero__wordmark{
-  display:flex;
-  align-items:baseline;
-  gap:10px;
-  padding-top:4px;
+  padding-top:8px;
 }
-.hero__wordmark strong{
-  font-family: var(--font-display);
-  font-size:1.2rem;
-  font-weight:800;
-}
-.hero__wordmark span{ color:#B7BAC4; font-size:.95rem; }
+.hero__wordmark-image{ height:52px; width:auto; display:block; }
 
 .hero__actions{
   display:flex;
@@ -386,8 +408,11 @@ svg{ display:block; }
 .ecosystem__head{ text-align:center; margin-bottom: 56px; }
 .ecosystem__head h2{ font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight:800; }
 
-.timeline{ display:flex; flex-direction:column; align-items:center; }
+.timeline{ position:relative; display:flex; flex-direction:column; align-items:center; }
+
 .timeline__item{
+  position:relative;
+  z-index:1;
   width:100%;
   display:flex;
   align-items:flex-start;
@@ -397,28 +422,106 @@ svg{ display:block; }
 }
 .timeline__badge{
   flex-shrink:0;
-  width:56px; height:56px;
-  border-radius:50%;
-  display:grid; place-items:center;
-  font-family: var(--font-display);
-  font-weight:800;
-  font-size:.95rem;
-  color:#fff;
-  border: 2px solid var(--tone);
-  background: var(--ink);
+  width:72px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
 }
-.timeline__item[data-tone="coral"] { --tone:#F2795A; }
-.timeline__item[data-tone="violet"]{ --tone:#8B5CF6; }
-.timeline__item[data-tone="green"] { --tone:#59B24A; }
-.timeline__item[data-tone="teal"]  { --tone:#22B39A; }
+.timeline__badge img{
+  height:100%;
+  width:auto;
+  max-width:100%;
+  object-fit:contain;
+  object-position:left center;
+  display:block;
+  filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+  transition: filter .22s ease, transform .22s ease;
+}
+.timeline__item[data-tone="coral"] { --tone:#F2795A; --tone-rgb:242,121,90; }
+.timeline__item[data-tone="violet"]{ --tone:#8B5CF6; --tone-rgb:139,92,246; }
+.timeline__item[data-tone="green"] { --tone:#59B24A; --tone-rgb:89,178,74; }
+.timeline__item[data-tone="teal"]  { --tone:#22B39A; --tone-rgb:34,179,154; }
 
-.timeline__content h3{ font-family: var(--font-display); font-size:1.1rem; font-weight:800; margin-bottom:6px; }
-.timeline__content p{ font-size:.9rem; color:#B7BAC4; max-width:46ch; }
+.timeline__item:hover .timeline__badge img,
+.timeline__item:focus-within .timeline__badge img{
+  transform: translateY(-1px) scale(1.045);
+  filter:
+    drop-shadow(0 0 2px rgba(var(--tone-rgb), .95))
+    drop-shadow(0 0 9px rgba(var(--tone-rgb), .7))
+    drop-shadow(0 0 20px rgba(var(--tone-rgb), .4));
+}
 
+.timeline__content h3{ font-family: var(--font-display); font-size:1.1rem; font-weight:800; margin-bottom:6px; transition: color .22s ease, text-shadow .22s ease; }
+.timeline__content p{ font-size:.9rem; color:#C4C0B4; max-width:46ch; }
+
+.timeline__item:hover .timeline__content h3,
+.timeline__item:focus-within .timeline__content h3{
+  color:#fff;
+  text-shadow: 0 0 12px rgba(var(--tone-rgb), .55);
+}
+
+/* Conector entre um item e o próximo: curto, confinado ao espaço do
+   próprio gap, e só acende via CSS puro (seletor de irmão adjacente)
+   quando o item ANTERIOR está sob o mouse/foco — sem estado em JS,
+   então nunca fica "preso" aceso nem duplicado. */
 .timeline__arrow{
+  position:relative;
+  z-index:1;
+  display:flex;
+  justify-content:center;
   color: var(--gold);
   padding: 6px 0;
-  opacity:.7;
+  opacity:.55;
+  transition: color .22s ease, opacity .22s ease;
+}
+.timeline__arrow[data-tone="coral"] { --tone:#F2795A; --tone-rgb:242,121,90; }
+.timeline__arrow[data-tone="violet"]{ --tone:#8B5CF6; --tone-rgb:139,92,246; }
+.timeline__arrow[data-tone="green"] { --tone:#59B24A; --tone-rgb:89,178,74; }
+
+.timeline__arrow::before{
+  content:"";
+  position:absolute;
+  left:50%; top:0; bottom:0;
+  width:2px;
+  transform:translateX(-50%);
+  background: linear-gradient(to bottom, transparent, currentColor 30%, currentColor 70%, transparent);
+  opacity:.3;
+  border-radius:2px;
+  transition: opacity .22s ease, filter .22s ease;
+}
+.timeline__arrow svg{
+  position:relative;
+  z-index:1;
+  transition: filter .22s ease, transform .22s ease;
+}
+
+.timeline__item:hover + .timeline__arrow,
+.timeline__item:focus-within + .timeline__arrow{
+  color: var(--tone, var(--gold));
+  opacity:1;
+}
+.timeline__item:hover + .timeline__arrow::before,
+.timeline__item:focus-within + .timeline__arrow::before{
+  opacity:.95;
+  filter:
+    drop-shadow(0 0 3px rgba(var(--tone-rgb, 164,121,62), .9))
+    drop-shadow(0 0 10px rgba(var(--tone-rgb, 164,121,62), .6));
+}
+.timeline__item:hover + .timeline__arrow svg,
+.timeline__item:focus-within + .timeline__arrow svg{
+  transform: scale(1.18);
+  filter:
+    drop-shadow(0 0 3px rgba(var(--tone-rgb, 164,121,62), .95))
+    drop-shadow(0 0 10px rgba(var(--tone-rgb, 164,121,62), .65));
+}
+
+@media (prefers-reduced-motion: reduce){
+  .timeline__badge img,
+  .timeline__content h3,
+  .timeline__arrow,
+  .timeline__arrow::before,
+  .timeline__arrow svg{ transition:none; }
 }
 
 /* ==========================================================================
@@ -437,19 +540,28 @@ svg{ display:block; }
 
 .about__diagram{
   position:relative;
+  /* width explícito é necessário: como todo o conteúdo do diagrama é
+     position:absolute (nada em fluxo normal), o navegador não tem como
+     resolver aspect-ratio a partir de "width:auto" e a caixa colapsa
+     para 0x0 — largura explícita (100%, limitada por max-width) evita isso. */
+  width: 100%;
   aspect-ratio:1/1;
   max-width: 460px;
   margin-inline:auto;
 }
-.orbit-lines{ position:absolute; inset:0; width:100%; height:100%; }
+.orbit-lines{ position:absolute; inset:0; width:100%; height:100%; z-index:1; pointer-events:none; }
 .orbit-ring{ opacity:.6; }
 .orbit-link{
   stroke: var(--gold);
-  stroke-width:1.5;
-  stroke-dasharray: 220;
-  stroke-dashoffset: 220;
+  stroke-width:2;
+  stroke-linecap: round;
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
   transition: stroke-dashoffset 1s ease;
-  opacity:.7;
+  opacity:.85;
+  filter:
+    drop-shadow(0 0 2px var(--gold))
+    drop-shadow(0 0 6px var(--gold));
 }
 .about__diagram.is-visible .orbit-link{ stroke-dashoffset:0; }
 
@@ -461,46 +573,48 @@ svg{ display:block; }
   border-radius:50%;
   background: var(--ink);
   display:grid; place-items:center;
-  box-shadow: var(--shadow-card);
-  z-index:2;
+  /* Brilho neon discreto ao redor do ícone central, além da sombra de
+     profundidade já existente — mantido sutil (baixa opacidade). */
+  box-shadow:
+    var(--shadow-card),
+    0 0 14px 1px rgba(164,121,62,.45),
+    0 0 28px 4px rgba(164,121,62,.22);
+  z-index:10;
 }
+
+/* Nós da órbita: ancorados nos 4 quadrantes (cantos) do diagrama via
+   top/right/bottom/left, nunca no centro do ponto — assim o conteúdo do
+   nó cresce para fora, para longe do ícone central, e não sobrepõe.
+   Cada nó hoje só contém a logo vertical completa (sem texto ao lado). */
 .orbit-node{
   position:absolute;
-  left:50%; top:50%;
-  transform: translate(calc(-50% + var(--x) * 1px), calc(-50% + var(--y) * 1px)) scale(.5);
-  display:flex; align-items:center; gap:10px;
+  z-index:5;
+  width: 150px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   opacity:0;
+  transform: scale(.5);
   transition: opacity .5s ease, transform .5s ease;
   transition-delay: calc(var(--d, 0) * .12s);
 }
 .about__diagram.is-visible .orbit-node{
   opacity:1;
-  transform: translate(calc(-50% + var(--x) * 1px), calc(-50% + var(--y) * 1px)) scale(1);
+  transform: scale(1);
 }
-.orbit-dot{
-  width:14px; height:14px;
-  border-radius:50%;
-  background: var(--white);
-  border: 3px solid var(--tone, var(--gold));
-  box-shadow: var(--shadow-card);
-  flex-shrink:0;
-  animation: orbit-pulse 2.6s ease-in-out infinite;
-}
-@keyframes orbit-pulse{
-  0%, 100% { box-shadow: 0 0 0 0 rgba(227,166,62,.35); }
-  50%      { box-shadow: 0 0 0 8px rgba(227,166,62,0); }
-}
-@media (prefers-reduced-motion: reduce){ .orbit-dot{ animation:none; } }
+.orbit-node--tl{ top: 6%;  left: 0; }
+.orbit-node--tr{ top: 6%;  right: 0; }
+.orbit-node--br{ bottom: 6%; right: 0; }
+.orbit-node--bl{ bottom: 6%; left: 0; }
 
-.orbit-node[data-c="coral"] { --tone:#F2795A; }
-.orbit-node[data-c="violet"]{ --tone:#8B5CF6; }
-.orbit-node[data-c="green"] { --tone:#59B24A; }
-.orbit-node[data-c="teal"]  { --tone:#22B39A; }
-
-.orbit-label{ font-size:.78rem; line-height:1.3; white-space:nowrap; }
-.orbit-label strong{ display:block; font-family: var(--font-display); font-size:.86rem; }
-.orbit-label small{ color:#8A8D97; font-size:.72rem; }
-.orbit-label--left{ order:-1; text-align:right; }
+.orbit-logo{
+  width:100%;
+  max-width:130px;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  margin-inline:auto;
+}
 
 /* ==========================================================================
    Unidades (hexágonos + números)
@@ -548,15 +662,40 @@ svg{ display:block; }
   background: linear-gradient(160deg, color-mix(in srgb, var(--tone) 30%, transparent), transparent 65%);
   pointer-events:none;
 }
-.hex__inner{ position:relative; text-align:center; }
-.hex__inner h3{ font-family: var(--font-display); font-size:1rem; font-weight:800; margin-bottom:8px; color:#fff; }
+.hex__inner{
+  /* Contêiner de sobreposição: logo e textos ocupam o mesmo espaço central
+     (inset:0) e alternam por opacidade — por isso precisa de tamanho real
+     (width/height 100%) para os filhos absolutos terem onde se ancorar. */
+  position:relative;
+  width:100%;
+  height:100%;
+  text-align:center;
+}
+.hex__inner img{
+  /* max-width relativo mantém as pontas da logo longe das diagonais do
+     clip-path do hexágono; object-fit + height:auto evitam distorção. */
+  position:absolute;
+  inset:0;
+  margin:auto;
+  width:100%;
+  max-width:65%;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  opacity:1;
+  transition: opacity .3s ease;
+  pointer-events:none;
+}
 .hex__tags{
-  display:flex; flex-direction:column; gap:4px;
-  font-size:.7rem; color:#B7BAC4;
-  max-height:0;
-  overflow:hidden;
+  position:absolute;
+  inset:0;
+  display:flex; flex-direction:column; justify-content:center; align-items:center; gap:4px;
+  text-align:center;
+  font-size:.7rem; color:#C4C0B4;
   opacity:0;
-  transition: max-height .3s ease, opacity .3s ease;
+  visibility:hidden;
+  transition: opacity .3s ease, visibility .3s ease;
+  pointer-events:none;
 }
 .hex__tags li{ white-space:nowrap; }
 
@@ -567,11 +706,17 @@ svg{ display:block; }
   border-color: var(--tone);
   outline:none;
 }
-.hex:hover .hex__tags, .hex:focus-visible .hex__tags, .hex:focus-within .hex__tags{
-  max-height:160px;
-  opacity:1;
+.hex:hover .hex__inner img,
+.hex:focus-visible .hex__inner img,
+.hex:focus-within .hex__inner img{
+  opacity:0;
 }
-.hex:hover .hex__inner h3, .hex:focus-visible .hex__inner h3{ margin-bottom:10px; }
+.hex:hover .hex__tags,
+.hex:focus-visible .hex__tags,
+.hex:focus-within .hex__tags{
+  opacity:1;
+  visibility:visible;
+}
 
 .units__stats{
   background: var(--ink-card);
@@ -680,7 +825,7 @@ svg{ display:block; }
 
 .presence__map{ max-width:340px; margin-inline:auto; }
 .presence__map svg{ width:100%; height:auto; }
-.presence__silhouette{ fill: rgba(227,166,62,.08); stroke: var(--gold-dark); stroke-width:1.5; stroke-linejoin:round; }
+.presence__silhouette{ fill: rgba(164,121,62,.08); stroke: var(--gold-dark); stroke-width:1.5; stroke-linejoin:round; }
 .presence__pin{ fill: var(--gold); stroke: var(--ink); stroke-width:2; cursor:pointer; transition: fill .15s ease; }
 .presence__pin:hover, .presence__pin:focus-visible{ fill:#fff; }
 
@@ -846,7 +991,7 @@ svg{ display:block; }
 /* ==========================================================================
    Footer
    ========================================================================== */
-.site-footer{ background: #08090C; color:#9CA0AC; padding-top: 64px; }
+.site-footer{ background: #181818; color:#A8A39A; padding-top: 64px; }
 .footer__grid{
   display:grid;
   grid-template-columns: 1.4fr repeat(5, 1fr);
@@ -857,7 +1002,7 @@ svg{ display:block; }
 .footer__brand .logo{ margin-bottom: 14px; }
 .footer__col h4{ color:#fff; font-size:.85rem; font-weight:800; margin-bottom:16px; }
 .footer__col ul{ display:flex; flex-direction:column; gap:10px; }
-.footer__col a{ font-size:.82rem; color:#9CA0AC; }
+.footer__col a{ font-size:.82rem; color:#A8A39A; }
 .footer__col a:hover{ color: var(--gold); }
 .footer__contact ul{ margin-bottom:20px; }
 .footer__contact li{ font-size:.8rem; line-height:1.5; }
@@ -867,7 +1012,7 @@ svg{ display:block; }
   width:32px; height:32px;
   border-radius:50%;
   border:1px solid var(--line-dark);
-  color:#9CA0AC;
+  color:#A8A39A;
   display:grid; place-items:center;
   transition: border-color .15s ease, color .15s ease;
 }
@@ -901,7 +1046,6 @@ svg{ display:block; }
    Responsive
    ========================================================================== */
 @media (max-width: 1100px){
-  .main-nav ul{ gap:16px; }
   .units__layout{ grid-template-columns: 1fr; }
   .units__stats{ position:static; max-width:420px; }
   .solutions__grid{ grid-template-columns: repeat(2, 1fr); }
@@ -910,7 +1054,12 @@ svg{ display:block; }
   .footer__grid{ grid-template-columns: repeat(3, 1fr); }
 }
 
-@media (max-width: 900px){
+/* Menu principal: colapsa para o hambúrguer mais cedo para não espremer os
+   10 itens de navegação + dropdown antes disso. Medido empiricamente: com
+   white-space:nowrap nos links, o conteúdo do header (logo + nav + CTA)
+   precisa de ~1423px; 1480px dá a margem de segurança para caber sem
+   overflow horizontal em qualquer viewport abaixo disso. */
+@media (max-width: 1480px){
   .main-nav{ display:none; }
   .header__cta{ display:none; }
   .nav-toggle{ display:flex; margin-left:auto; }
@@ -962,17 +1111,47 @@ svg{ display:block; }
   }
   .has-dropdown.is-open .nav-dropdown{ max-height: 420px; transform:none; }
   .nav-dropdown a, .nav-dropdown__soon{ padding: 10px 6px; }
+}
 
+@media (max-width: 900px){
   .timeline__item{ gap:14px; }
 
   .about__grid{ grid-template-columns: 1fr; }
-  .about__diagram{ order:-1; margin-bottom: 24px; }
-  .orbit-label{ display:none; }
+
+  /* Órbita desligada no mobile: sem posicionamento absoluto nem teia neon
+     (que exigem espaço em 2D); os 4 nós viram uma lista simples empilhada,
+     mantendo logo + título + descrição visíveis. */
+  .about__diagram{
+    order:-1;
+    margin-bottom: 24px;
+    aspect-ratio: auto;
+    max-width: 360px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+  }
+  .orbit-lines{ display:none; }
+  .orbit-center{ position:static; transform:none; }
+  .orbit-node{
+    position:static;
+    width:100%;
+    max-width:180px;
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
 
   .hex-grid{ grid-template-columns: repeat(2, 1fr); max-width:420px; margin-inline:auto; }
   .hex-grid .hex:nth-child(even){ margin-top:0; }
-  .hex__tags{ max-height:none; opacity:1; position:static; }
   .hex{ aspect-ratio: 1/0.98; }
+
+  /* Sem hover confiável no touch: desliga a sobreposição por opacidade e
+     volta ao empilhamento simples (logo em cima, textos embaixo), ambos
+     sempre visíveis — como já era o comportamento mobile antes. */
+  .hex__inner{ display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .hex__inner img{ position:static; margin:0 0 8px; opacity:1; }
+  .hex__tags{ position:static; inset:auto; opacity:1; visibility:visible; }
 
   .flow{ flex-direction:column; }
   .flow__arrow{ transform: rotate(90deg); padding-block:2px; }
@@ -987,6 +1166,8 @@ svg{ display:block; }
 
 @media (max-width: 560px){
   .wrap{ padding-inline: 18px; }
+  .logo__tagline{ display:none; }
+  .logo__image{ height:28px; }
   .hex-grid{ grid-template-columns: 1fr; max-width:280px; }
   .footer__grid{ grid-template-columns: 1fr 1fr; }
   .final-cta__actions{ flex-direction:column; width:100%; }
