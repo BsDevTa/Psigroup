@@ -734,36 +734,53 @@ svg{ display:block; }
 /* ==========================================================================
    Como funciona / Experimente!
    ========================================================================== */
-.how{ background: var(--paper); padding-block: 96px; text-align:center; }
+.how{ background: var(--ink); color:#fff; padding-block: 96px; text-align:center; border-top: 1px solid var(--line-dark); }
 .how h2{ font-size: clamp(1.7rem, 2.8vw, 2.3rem); font-weight:800; margin-bottom:48px; }
 
 .flow{
-  display:flex;
+  display:grid;
+  grid-auto-flow:column;
+  grid-template-rows: auto auto;
   align-items:center;
   justify-content:center;
-  flex-wrap:wrap;
-  gap: 4px 2px;
+  column-gap: 14px;
+  row-gap: 10px;
   max-width: 1100px;
   margin-inline:auto;
 }
+/* Subgrid faz o passo compartilhar as mesmas duas linhas (pill / legenda) do
+   .flow: a linha do pill fica com a altura do maior pill da fileira, então a
+   seta (que também vive só na linha 1) centraliza contra essa altura — sem
+   depender de existir ou não legenda embaixo em cada passo. */
 .flow__item{
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-rows: subgrid;
+  grid-row: 1 / 3;
+  justify-items:center;
   align-items:center;
-  gap:4px;
+  row-gap:8px;
 }
 .flow__badge{
-  background: var(--ink);
+  background: var(--ink-card);
   color:#fff;
+  border: 1px solid var(--gold-dark);
   font-family: var(--font-display);
   font-weight:700;
   font-size:.82rem;
-  padding: 12px 18px;
+  padding: 14px 22px;
   border-radius:999px;
   white-space:nowrap;
 }
-.flow__item p{ font-size:.72rem; color:#7A7E88; }
-.flow__arrow{ color: var(--gold-dark); flex-shrink:0; padding-inline:2px; }
+.flow__item p{ margin:0; font-size:.72rem; color:#AEB1BB; text-align:center; }
+.flow__arrow{
+  grid-row:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: var(--gold);
+  flex-shrink:0;
+  padding-inline:2px;
+}
 
 /* ==========================================================================
    Nossas Soluções
@@ -773,34 +790,20 @@ svg{ display:block; }
 .solutions__head h2{ font-size: clamp(1.6rem, 2.4vw, 2.1rem); font-weight:800; margin-bottom:12px; }
 .solutions__head p{ color: var(--ink-body); font-size:.95rem; }
 
-.solutions__grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+.solucoes-cta-container{
+  display:flex;
+  justify-content:center;
+  padding-block: 24px 8px;
 }
-.solution-card{
-  text-align:left;
-  background: var(--white);
-  border: 1px solid var(--paper-line);
-  border-radius: var(--radius-md);
-  padding: 26px 22px;
-  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+
+/* Pulso contínuo e sutil para puxar o olho para o único CTA da seção. */
+@keyframes pulse-gold{
+  0%   { box-shadow: 0 0 0 0 rgba(212,175,55,.55); }
+  70%  { box-shadow: 0 0 0 18px rgba(212,175,55,0); }
+  100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
 }
-.solution-card:hover, .solution-card:focus-visible{
-  transform: translateY(-3px);
-  border-color: var(--gold);
-  box-shadow: var(--shadow-card);
-}
-.solution-card__icon{
-  width:48px; height:48px;
-  border-radius:50%;
-  background: var(--gold-tint);
-  color: var(--gold-dark);
-  display:grid; place-items:center;
-  margin-bottom:16px;
-}
-.solution-card h3{ font-size:1.05rem; font-weight:800; margin-bottom:6px; }
-.solution-card p{ font-size:.85rem; color: var(--ink-body); }
+.btn--pulse{ animation: pulse-gold 2.2s ease-out infinite; }
+.btn--pulse:hover{ animation-play-state: paused; }
 /* ==========================================================================
    Presença nacional
    ========================================================================== */
@@ -823,11 +826,40 @@ svg{ display:block; }
 .presence__regions strong{ font-family: var(--font-display); color: var(--gold); font-size:.85rem; }
 .presence__regions span{ font-size:.85rem; color:#D6D8DE; }
 
-.presence__map{ max-width:340px; margin-inline:auto; }
-.presence__map svg{ width:100%; height:auto; }
-.presence__silhouette{ fill: rgba(164,121,62,.08); stroke: var(--gold-dark); stroke-width:1.5; stroke-linejoin:round; }
-.presence__pin{ fill: var(--gold); stroke: var(--ink); stroke-width:2; cursor:pointer; transition: fill .15s ease; }
-.presence__pin:hover, .presence__pin:focus-visible{ fill:#fff; }
+.presence__map{ max-width:520px; margin-inline:auto; }
+
+/* Pulso dourado contínuo, no mesmo espírito do glow do CTA (.btn--pulse).
+   contrast(1.1) reforça as linhas/luzes amarelas do PNG; o drop-shadow
+   ficou mais discreto (menos blur/opacidade) pra não "estourar" a sujeira
+   escura que o mix-blend-mode deixar passar nas bordas. */
+@keyframes pulse-map-glow{
+  0%   { filter: contrast(1.1) drop-shadow(0 0 4px rgba(212,175,55,.25)); }
+  100% { filter: contrast(1.1) drop-shadow(0 0 14px rgba(212,175,55,.55)); }
+}
+.mapa-presenca-img{
+  max-width:100%;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  margin-inline:auto;
+  /* Funde os pixels escurecidos/esfumaçados do PNG com o fundo --ink da
+     seção: "lighten" mantém apenas o que é mais claro que o fundo (linhas,
+     luzes, texto) e deixa o resto transparecer o grafite por trás. Sozinho
+     isso não bastava: o PNG é um retângulo opaco (sem transparência real),
+     então (a) a fumaça tem um tom levemente alaranjado que ainda "vence" o
+     lighten em alguns canais perto das bordas, e (b) o drop-shadow abaixo
+     desenha o contorno a partir do alpha da imagem — que sem máscara é o
+     retângulo inteiro, exatamente o "quadrado sujo" reportado. A máscara
+     radial zera o alpha nos cantos/bordas, resolvendo os dois problemas de
+     uma vez e transformando o drop-shadow num glow ambiente elíptico.
+     Ajuste os dois primeiros números (raio da elipse) e o "45%" (onde
+     começa o fade) se a máscara cortar algum pino do mapa. */
+  -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 48%, #000 45%, transparent 100%);
+          mask-image: radial-gradient(ellipse 70% 65% at 50% 48%, #000 45%, transparent 100%);
+  mix-blend-mode: lighten;
+  animation: pulse-map-glow 3s infinite alternate ease-in-out;
+}
 
 /* ==========================================================================
    Diagnóstico gratuito (modal)
@@ -1048,7 +1080,6 @@ svg{ display:block; }
 @media (max-width: 1100px){
   .units__layout{ grid-template-columns: 1fr; }
   .units__stats{ position:static; max-width:420px; }
-  .solutions__grid{ grid-template-columns: repeat(2, 1fr); }
   .presence__inner{ grid-template-columns: 1fr; }
   .presence__map{ order:-1; }
   .footer__grid{ grid-template-columns: repeat(3, 1fr); }
@@ -1153,10 +1184,12 @@ svg{ display:block; }
   .hex__inner img{ position:static; margin:0 0 8px; opacity:1; }
   .hex__tags{ position:static; inset:auto; opacity:1; visibility:visible; }
 
-  .flow{ flex-direction:column; }
+  /* No mobile o grid de 2 linhas compartilhadas (pill/legenda) não faz
+     sentido: cada passo empilha sozinho, então voltamos .flow-item a um
+     flex em coluna comum e a .flow a um flex em coluna simples. */
+  .flow{ display:flex; flex-direction:column; align-items:center; gap:18px; }
+  .flow__item{ display:flex; flex-direction:column; align-items:center; gap:8px; }
   .flow__arrow{ transform: rotate(90deg); padding-block:2px; }
-
-  .solutions__grid{ grid-template-columns: 1fr; }
 
   .footer__grid{ grid-template-columns: repeat(2, 1fr); }
 

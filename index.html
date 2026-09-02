@@ -21,7 +21,7 @@
 
     <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
       <ul>
-        <li><a href="#">Início</a></li>
+        <li><a href="#inicio">Início</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#unidades">Unidades</a></li>
         <li><a href="#solucoes">Diagnóstico gratuito</a></li>
@@ -47,8 +47,6 @@
         </li>
         <li><a href="#como-funciona">Como funciona</a></li>
         <li><a href="#presenca">Onde estamos</a></li>
-        <li><a href="#carreiras">Carreiras</a></li>
-        <li><a href="#blog">Blog</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
@@ -67,7 +65,7 @@
 <main>
 
   <!-- ========== HERO (100vh, vídeo de fundo) ========== -->
-  <section class="hero">
+  <section class="hero" id="inicio">
     <div class="hero__bg" aria-hidden="true">
       <img class="hero__bg-image" src="assets/hero-team.jpg" alt="">
       <!-- Sem asset de vídeo ainda: troque o <source> abaixo pelo arquivo real (mp4, ~10-20s, sem áudio). -->
@@ -284,37 +282,8 @@
       <p>Saiba como, de forma gratuita!</p>
     </div>
 
-    <div class="wrap solutions__grid" data-reveal-pop>
-      <button type="button" class="solution-card" data-path="pessoas" data-open-quiz>
-        <span class="solution-card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14c2.8.3 5 2.4 5 5"/></svg></span>
-        <h3>Pessoas</h3>
-        <p>Preciso contratar, substituir ou estruturar minha equipe.</p>
-      </button>
-      <button type="button" class="solution-card" data-path="operacao" data-open-quiz>
-        <span class="solution-card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><path d="M2 20c0-3 2.7-5.5 6-5.5S14 17 14 20"/><path d="M13 14.7c2.9.4 5 2.7 5 5.3"/></svg></span>
-        <h3>Operação</h3>
-        <p>Preciso terceirizar ou melhorar uma operação.</p>
-      </button>
-      <button type="button" class="solution-card" data-path="facilities" data-open-quiz>
-        <span class="solution-card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg></span>
-        <h3>Facilities</h3>
-        <p>Preciso de limpeza, conservação ou apoio operacional.</p>
-      </button>
-      <button type="button" class="solution-card" data-path="saude" data-open-quiz>
-        <span class="solution-card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-9.5-9.1C.9 8.3 3 5 6.4 5 8.6 5 10.5 6.3 12 8.4 13.5 6.3 15.4 5 17.6 5 21 5 23.1 8.3 21.5 11.9 19 16.5 12 21 12 21z"/></svg></span>
-        <h3>Saúde</h3>
-        <p>Quero cuidar melhor das pessoas da minha empresa.</p>
-      </button>
-      <button type="button" class="solution-card" data-path="gestao" data-open-quiz>
-        <span class="solution-card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9z"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span>
-        <h3>Gestão e Tecnologia</h3>
-        <p>Quero indicadores, processos e mais controle.</p>
-      </button>
-      <button type="button" class="solution-card" data-path="expansao" data-open-quiz>
-        <span class="solution-card__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V4M4 4h10l-2 4 2 4H4"/></svg></span>
-        <h3>Expansão</h3>
-        <p>Quero encontrar um parceiro para crescer.</p>
-      </button>
+    <div class="wrap solucoes-cta-container" data-reveal-pop>
+      <button type="button" class="btn btn--gold btn--pulse" data-open-quiz>Iniciar Diagnóstico Gratuito</button>
     </div>
   </section>
 
@@ -334,18 +303,7 @@
       </div>
 
       <div class="presence__map" data-reveal>
-        <svg viewBox="0 0 340 335" role="img" aria-label="Mapa estilizado do Brasil com as cidades onde a PSIGroup está presente">
-          <path class="presence__silhouette" d="M191,5 L204,43 L333,103 L333,113 L302,153 L261,238 L235,247 L215,268 L175,331 L139,298 L165,261 L136,204 L77,128 L0,106 L94,17 Z"/>
-          <circle class="presence__pin" cx="215" cy="58" r="5"><title>Belém</title></circle>
-          <circle class="presence__pin" cx="312" cy="133" r="5"><title>Aracaju</title></circle>
-          <circle class="presence__pin" cx="300" cy="145" r="5"><title>Mata de São João</title></circle>
-          <circle class="presence__pin" cx="302" cy="153" r="5"><title>Salvador</title></circle>
-          <circle class="presence__pin" cx="306" cy="150" r="5"><title>Lauro de Freitas</title></circle>
-          <circle class="presence__pin" cx="290" cy="150" r="5"><title>Feira de Santana</title></circle>
-          <circle class="presence__pin" cx="215" cy="178" r="5"><title>Brasília</title></circle>
-          <circle class="presence__pin" cx="238" cy="245" r="5"><title>São Paulo</title></circle>
-          <circle class="presence__pin" cx="205" cy="295" r="5"><title>Porto Alegre</title></circle>
-        </svg>
+        <img src="assets/mapa-brasil.png" alt="Mapa de presença do PSIGroup no Brasil" class="mapa-presenca-img">
       </div>
     </div>
   </section>
