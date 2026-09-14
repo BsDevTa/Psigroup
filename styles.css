@@ -196,6 +196,12 @@ svg{ display:block; }
 }
 .main-nav a:hover, .main-nav a:focus-visible{ color: var(--gold); border-color: var(--gold); }
 
+/* CTA de Parceiros duplicado dentro do próprio menu: .header__cta some no
+   mobile (ver breakpoint 1480px), então sem isso o funil de Parceiros
+   fica sem nenhum gatilho visível em telas pequenas. Só aparece dentro do
+   painel do hambúrguer aberto — no desktop o .header__cta já cobre o papel. */
+.main-nav__cta-item{ display:none; }
+
 /* -- Dropdown "Serviços" -- */
 .has-dropdown{ position:relative; }
 
@@ -1003,6 +1009,145 @@ svg{ display:block; }
   flex-shrink:0;
 }
 .quiz__dialog.is-result .quiz__foot{ display:none; }
+
+/* ==========================================================================
+   Seja Nosso Parceiro (modal de captação de franqueados)
+   Reaproveita a mesma linguagem visual do modal de diagnóstico (.quiz):
+   overlay escuro com blur, dialog branco arredondado, cabeçalho com "X".
+   ========================================================================== */
+.partner-modal{
+  position:fixed; inset:0;
+  z-index:200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.partner-modal__overlay{
+  position:absolute; inset:0;
+  background: rgba(11,13,18,.72);
+  backdrop-filter: blur(3px);
+}
+.partner-modal__dialog{
+  position:relative;
+  background: var(--white);
+  color: var(--ink);
+  width:100%;
+  max-width: 720px;
+  max-height: 90vh;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+.partner-modal__head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--paper-line);
+  flex-shrink:0;
+}
+.partner-modal__title{ font-size:1.25rem; font-weight:800; margin-bottom:6px; }
+.partner-modal__subtitle{ font-size:.85rem; color: var(--ink-body); max-width:48ch; }
+.partner-modal__close{
+  width:32px; height:32px;
+  flex-shrink:0;
+  border-radius:50%;
+  display:grid; place-items:center;
+  color:#8A8D97;
+  transition: background-color .15s ease, color .15s ease;
+}
+.partner-modal__close:hover{ background: var(--paper); color: var(--ink); }
+
+.partner-form{ display:flex; flex-direction:column; min-height:0; }
+.partner-form__scroll{ padding: 22px 28px; overflow-y:auto; }
+
+.partner-form__grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.partner-form__field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:16px;
+}
+.partner-form__field--full{ grid-column: 1 / -1; }
+.partner-form__field span{ font-size:.8rem; font-weight:700; color: var(--ink); }
+.partner-form__field input,
+.partner-form__field select,
+.partner-form__field textarea{
+  font-family: inherit;
+  font-size:.9rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--paper-line);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  width:100%;
+  transition: border-color .15s ease;
+}
+.partner-form__field input:focus-visible,
+.partner-form__field select:focus-visible,
+.partner-form__field textarea:focus-visible{
+  outline:none;
+  border-color: var(--gold);
+}
+.partner-form__field textarea{ resize:vertical; min-height:96px; }
+
+.partner-form__pdf-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.85rem;
+  font-weight:700;
+  color: var(--gold-dark);
+  border-bottom: 1.5px solid var(--gold);
+  padding-bottom:2px;
+  margin-bottom:22px;
+}
+.partner-form__pdf-link:hover{ color: var(--gold-dark); filter: brightness(.85); }
+
+.contract-highlight-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  background-color: rgba(164, 121, 62, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border-bottom: none;
+}
+.contract-highlight-link:hover{ background-color: rgba(164, 121, 62, 0.18); filter: none; }
+
+.partner-form__checkbox{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:14px;
+  cursor:pointer;
+}
+.partner-form__checkbox input{
+  flex-shrink:0;
+  width:18px; height:18px;
+  margin-top:2px;
+  accent-color: var(--gold);
+  cursor:pointer;
+}
+.partner-form__checkbox span{ font-size:.82rem; color: var(--ink-body); line-height:1.45; }
+
+.partner-form__foot{
+  padding: 18px 28px;
+  border-top:1px solid var(--paper-line);
+  flex-shrink:0;
+}
+.partner-form__foot .btn{ width:100%; justify-content:center; }
+
 /* ==========================================================================
    CTA final
    ========================================================================== */
@@ -1023,7 +1168,38 @@ svg{ display:block; }
 /* ==========================================================================
    Footer
    ========================================================================== */
-.site-footer{ background: #181818; color:#A8A39A; padding-top: 64px; }
+.site-footer{ background: #181818; color:#A8A39A; padding-top: 28px; }
+
+/* Banner do ecossistema: agora usa as logos "Horizontal (CINZA)", que têm
+   texto/traço escuro — por isso o pill precisa de fundo branco (senão some
+   igual acontecia com as BRANCO num fundo escuro). As 4 marcas têm
+   proporções bem diferentes (3:1 a 5.8:1), então alinhamos por altura fixa
+   em vez de largura fixa — mantém o peso visual uniforme na linha. */
+.footer-ecosystem-banner{
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+  margin-bottom: 4rem;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem 3.5rem;
+  border-radius: 100px;
+}
+.footer-ecosystem-link{
+  display: inline-block;
+  transition: transform .3s ease;
+}
+.footer-ecosystem-link:hover,
+.footer-ecosystem-link:focus-visible{ transform: scale(1.05); }
+.footer-ecosystem-banner img{
+  height: 48px;
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+}
 .footer__grid{
   display:grid;
   grid-template-columns: 1.4fr repeat(5, 1fr);
@@ -1031,7 +1207,17 @@ svg{ display:block; }
   padding-bottom: 48px;
   border-bottom: 1px solid var(--line-dark);
 }
-.footer__brand .logo{ margin-bottom: 14px; }
+/* Antes "Fale conosco" era um 7º item solto no grid de 6 colunas, então
+   transbordava pra uma 2ª linha esticada até a altura da coluna mais alta
+   (Legal), deixando um vão enorme entre a logo (curta) e o bloco de
+   contato. Agora ele é filho de .footer__brand, empilhado ao lado da
+   logo com um gap controlado — sem depender de wrap acidental do grid. */
+.footer__brand{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap: 2rem;
+}
 .footer__col h4{ color:#fff; font-size:.85rem; font-weight:800; margin-bottom:16px; }
 .footer__col ul{ display:flex; flex-direction:column; gap:10px; }
 .footer__col a{ font-size:.82rem; color:#A8A39A; }
@@ -1117,6 +1303,12 @@ svg{ display:block; }
   }
   .header__inner{ position:relative; }
 
+  .nav-open .main-nav__cta-item{
+    display:block;
+    margin-top:12px;
+  }
+  .nav-open .main-nav__cta-item .btn{ width:100%; justify-content:center; }
+
   .nav-dropdown-trigger{
     width:100%;
     justify-content:space-between;
@@ -1193,8 +1385,23 @@ svg{ display:block; }
 
   .footer__grid{ grid-template-columns: repeat(2, 1fr); }
 
+  /* A pílula longa não cabe numa linha só no mobile: quebra pra 2x2 e o
+     border-radius pequeno evita o efeito "cápsula" estranho num bloco
+     agora quase quadrado. */
+  .footer-ecosystem-banner{
+    flex-wrap: wrap;
+    gap: 24px 32px;
+    padding: 1.75rem 2rem;
+    border-radius: 24px;
+  }
+  .footer-ecosystem-banner img{ height:34px; }
+
   .quiz{ padding:0; }
   .quiz__dialog{ max-width:none; width:100%; height:100%; max-height:none; border-radius:0; }
+
+  .partner-modal{ padding:0; }
+  .partner-modal__dialog{ max-width:none; width:100%; height:100%; max-height:none; border-radius:0; }
+  .partner-form__grid{ grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px){
@@ -1210,4 +1417,8 @@ svg{ display:block; }
   .quiz__scroll{ padding-inline:20px; }
   .quiz__foot{ padding-inline:20px; flex-direction:column-reverse; }
   .quiz__foot .btn{ width:100%; justify-content:center; }
+
+  .partner-modal__head{ padding:18px 20px; }
+  .partner-form__scroll{ padding-inline:20px; }
+  .partner-form__foot{ padding-inline:20px; }
 }

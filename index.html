@@ -48,13 +48,16 @@
         <li><a href="#como-funciona">Como funciona</a></li>
         <li><a href="#presenca">Onde estamos</a></li>
         <li><a href="#contato">Contato</a></li>
+        <li class="main-nav__cta-item">
+          <button type="button" class="btn btn--gold btn--sm" data-open-partner-modal>Seja Nosso Parceiro PSIGroup</button>
+        </li>
       </ul>
     </nav>
 
-    <a href="#contato" class="btn btn--gold btn--sm header__cta">
-      Fale com um especialista
+    <button type="button" id="open-partner-modal" class="btn btn--gold btn--sm header__cta" data-open-partner-modal>
+      Seja Nosso Parceiro PSIGroup
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 12h16M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+    </button>
 
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
       <span></span><span></span><span></span>
@@ -84,7 +87,7 @@
         <img class="hero__wordmark-image" src="assets/logo-psigroup-full.png" alt="PSIGroup — Gente certa. No lugar certo." width="720" height="198">
       </div>
       <div class="hero__actions">
-        <a href="#ecossistema" class="btn btn--gold">Conheça nosso Ecossistema</a>
+        <a href="https://wa.me/5571988221221?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20um%20especialista." class="btn btn--gold" target="_blank" rel="noopener">Fale com um especialista</a>
         <a href="#solucoes" class="hero__quiz-link">Prefere ir direto ao diagnóstico gratuito? →</a>
       </div>
     </div>
@@ -278,7 +281,7 @@
   <section class="solutions" id="solucoes">
     <div class="wrap solutions__head" data-reveal-pop>
       <span class="eyebrow">Nossas soluções</span>
-      <h2>Como podemos te ajudar <span class="text-gold">hoje</span>? O que sua empresa precisa resolver hoje?</h2>
+      <h2>Como podemos te ajudar hoje? O que sua empresa precisa resolver hoje?</h2>
       <p>Saiba como, de forma gratuita!</p>
     </div>
 
@@ -332,6 +335,23 @@
 
 <!-- ========== FOOTER ========== -->
 <footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-ecosystem-banner">
+      <a href="/tudolimpo" class="footer-ecosystem-link">
+        <img src="assets/Tudolimpo Horizontal (CINZA).png" alt="Tudolimpo">
+      </a>
+      <a href="/terceirizaja" class="footer-ecosystem-link">
+        <img src="assets/TerceirizaJá Horizontal (CINZA).png" alt="TerceirizaJá">
+      </a>
+      <a href="/contrateexpress" class="footer-ecosystem-link">
+        <img src="assets/ContrateExpress Horizontal (CINZA).png" alt="ContrateExpress">
+      </a>
+      <a href="/onlymed" class="footer-ecosystem-link">
+        <img src="assets/OnlyMed Horizontal (CINZA).png" alt="OnlyMed">
+      </a>
+    </div>
+  </div>
+
   <div class="wrap footer__grid">
 
     <div class="footer__brand">
@@ -339,6 +359,19 @@
         <img class="logo__image" src="assets/logo-psigroup.png" alt="PSIGroup" width="720" height="199">
         <span class="logo__tagline">Gente certa. No lugar certo.</span>
       </a>
+
+      <div class="footer__col footer__contact">
+        <h4>Fale conosco</h4>
+        <ul>
+          <li>(71) 98822-1221</li>
+          <li>contato@psigroup.com.br</li>
+        </ul>
+        <div class="social">
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4 0 4.75 2.6 4.75 6V21H17v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg></a>
+          <a href="https://instagram.com/psigroupbrasil" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.07 3.3.15 4.7 1.6 4.9 4.9.06 1.2.07 1.6.07 4.8 0 3.2 0 3.6-.07 4.8-.15 3.3-1.6 4.7-4.9 4.9-1.2.06-1.6.07-4.8.07-3.2 0-3.6 0-4.8-.07-3.3-.15-4.7-1.6-4.9-4.9C2.24 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.07-4.8.15-3.3 1.6-4.7 4.9-4.9C8.4 2.2 8.8 2.2 12 2.2zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.3a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.2-8.5a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7a2.8 2.8 0 0 0-2-2C17.9 5 12 5 12 5s-5.9 0-7.6.3a2.8 2.8 0 0 0-2 2C2 8.8 2 12 2 12s0 3.2.4 4.7a2.8 2.8 0 0 0 2 2C6.1 19 12 19 12 19s5.9 0 7.6-.3a2.8 2.8 0 0 0 2-2c.4-1.5.4-4.7.4-4.7zM10 15.3V8.7l6 3.3-6 3.3z"/></svg></a>
+        </div>
+      </div>
     </div>
 
     <nav class="footer__col">
@@ -365,19 +398,6 @@
       <h4>Legal</h4>
       <ul><li><a href="#">Política de Privacidade</a></li><li><a href="#">LGPD</a></li><li><a href="#">Código de Ética</a></li><li><a href="#">Compliance</a></li></ul>
     </nav>
-
-    <div class="footer__col footer__contact">
-      <h4>Fale conosco</h4>
-      <ul>
-        <li>(71) 98822-1221</li>
-        <li>contato@psigroup.com.br</li>
-      </ul>
-      <div class="social">
-        <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4 0 4.75 2.6 4.75 6V21H17v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"/></svg></a>
-        <a href="https://instagram.com/psigroupbrasil" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.07 3.3.15 4.7 1.6 4.9 4.9.06 1.2.07 1.6.07 4.8 0 3.2 0 3.6-.07 4.8-.15 3.3-1.6 4.7-4.9 4.9-1.2.06-1.6.07-4.8.07-3.2 0-3.6 0-4.8-.07-3.3-.15-4.7-1.6-4.9-4.9C2.24 15.6 2.2 15.2 2.2 12c0-3.2 0-3.6.07-4.8.15-3.3 1.6-4.7 4.9-4.9C8.4 2.2 8.8 2.2 12 2.2zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.3a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.2-8.5a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg></a>
-        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7a2.8 2.8 0 0 0-2-2C17.9 5 12 5 12 5s-5.9 0-7.6.3a2.8 2.8 0 0 0-2 2C2 8.8 2 12 2 12s0 3.2.4 4.7a2.8 2.8 0 0 0 2 2C6.1 19 12 19 12 19s5.9 0 7.6-.3a2.8 2.8 0 0 0 2-2c.4-1.5.4-4.7.4-4.7zM10 15.3V8.7l6 3.3-6 3.3z"/></svg></a>
-      </div>
-    </div>
   </div>
 
   <div class="wrap footer__bottom">
@@ -412,6 +432,141 @@
       <button type="button" class="btn btn--outline" id="quizBackBtn">Voltar</button>
       <button type="button" class="btn btn--gold" id="quizNextBtn" disabled>Continuar</button>
     </footer>
+  </div>
+</div>
+
+<!-- ========== SEJA NOSSO PARCEIRO (modal de captação de franqueados) ========== -->
+<div class="partner-modal" id="partnerModal" hidden>
+  <div class="partner-modal__overlay" data-partner-close></div>
+  <div class="partner-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="partnerModalTitle">
+    <header class="partner-modal__head">
+      <div>
+        <h2 class="partner-modal__title" id="partnerModalTitle">Seja Nosso Parceiro PSIGroup</h2>
+        <p class="partner-modal__subtitle">Preencha os dados abaixo para candidatar-se a uma Unidade Parceiro Autorizado Local. Nossa equipe analisa e retorna pelo WhatsApp.</p>
+      </div>
+      <button type="button" class="partner-modal__close" id="partnerModalCloseBtn" aria-label="Fechar formulário de parceria">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+
+    <form id="partner-form" class="partner-form">
+      <div class="partner-form__scroll">
+        <div class="partner-form__grid">
+          <label class="partner-form__field">
+            <span>Nome completo</span>
+            <input type="text" name="nome" autocomplete="name" required>
+          </label>
+
+          <label class="partner-form__field">
+            <span>WhatsApp</span>
+            <input type="tel" name="whatsapp" autocomplete="tel" placeholder="(00) 00000-0000" required>
+          </label>
+
+          <label class="partner-form__field">
+            <span>E-mail</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+
+          <label class="partner-form__field partner-form__field--sm">
+            <span>Idade</span>
+            <input type="number" name="idade" min="18" max="99" required>
+          </label>
+
+          <label class="partner-form__field">
+            <span>Área de atuação</span>
+            <select name="area" required>
+              <option value="" disabled selected>Selecione</option>
+              <option value="Administrador">Administrador</option>
+              <option value="Psicólogo">Psicólogo</option>
+              <option value="Profissional de RH">Profissional de RH</option>
+              <option value="Contador">Contador</option>
+              <option value="Profissional de Marketing">Profissional de Marketing</option>
+              <option value="Consultor Empresarial">Consultor Empresarial</option>
+              <option value="Outros">Outros</option>
+            </select>
+          </label>
+
+          <label class="partner-form__field">
+            <span>Onde deseja atuar?</span>
+            <input type="text" name="onde_atuar" placeholder="Região, bairro ou cidade de interesse" required>
+          </label>
+
+          <label class="partner-form__field partner-form__field--sm">
+            <span>Estado (UF)</span>
+            <select name="uf" required>
+              <option value="" disabled selected>UF</option>
+              <option value="AC">AC — Acre</option>
+              <option value="AL">AL — Alagoas</option>
+              <option value="AP">AP — Amapá</option>
+              <option value="AM">AM — Amazonas</option>
+              <option value="BA">BA — Bahia</option>
+              <option value="CE">CE — Ceará</option>
+              <option value="DF">DF — Distrito Federal</option>
+              <option value="ES">ES — Espírito Santo</option>
+              <option value="GO">GO — Goiás</option>
+              <option value="MA">MA — Maranhão</option>
+              <option value="MT">MT — Mato Grosso</option>
+              <option value="MS">MS — Mato Grosso do Sul</option>
+              <option value="MG">MG — Minas Gerais</option>
+              <option value="PA">PA — Pará</option>
+              <option value="PB">PB — Paraíba</option>
+              <option value="PR">PR — Paraná</option>
+              <option value="PE">PE — Pernambuco</option>
+              <option value="PI">PI — Piauí</option>
+              <option value="RJ">RJ — Rio de Janeiro</option>
+              <option value="RN">RN — Rio Grande do Norte</option>
+              <option value="RS">RS — Rio Grande do Sul</option>
+              <option value="RO">RO — Rondônia</option>
+              <option value="RR">RR — Roraima</option>
+              <option value="SC">SC — Santa Catarina</option>
+              <option value="SP">SP — São Paulo</option>
+              <option value="SE">SE — Sergipe</option>
+              <option value="TO">TO — Tocantins</option>
+            </select>
+          </label>
+
+          <label class="partner-form__field">
+            <span>Cidade</span>
+            <input type="text" name="cidade" required>
+          </label>
+
+          <label class="partner-form__field">
+            <span>Potencial de investimento atual</span>
+            <select name="investimento" required>
+              <option value="" disabled selected>Selecione uma faixa</option>
+              <option value="R$ 1.000 a R$ 5.000">R$ 1.000 a R$ 5.000</option>
+              <option value="R$ 5.000 a R$ 10.000">R$ 5.000 a R$ 10.000</option>
+              <option value="R$ 10.000 a R$ 15.000">R$ 10.000 a R$ 15.000</option>
+              <option value="R$ 15.000 a R$ 20.000">R$ 15.000 a R$ 20.000</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="partner-form__field partner-form__field--full">
+          <span>Sobre você</span>
+          <textarea name="sobre" rows="4" placeholder="O que você faz atualmente e o que está buscando com uma Unidade Parceiro Autorizado Local?" required></textarea>
+        </label>
+
+        <a href="assets/contrato-parceria.pdf" target="_blank" rel="noopener" class="partner-form__pdf-link contract-highlight-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          Ler contrato de investimentos e parceria local
+        </a>
+
+        <label class="partner-form__checkbox">
+          <input type="checkbox" name="aceite_contrato" required>
+          <span>Declaro que li o contrato disponibilizado pela PSIGroup e estou ciente das condições de investimento e funcionamento da unidade.</span>
+        </label>
+
+        <label class="partner-form__checkbox">
+          <input type="checkbox" name="aceite_sem_garantia" required>
+          <span>Estou ciente de que o preenchimento desta candidatura não representa aprovação automática da Unidade Parceiro Autorizado Local.</span>
+        </label>
+      </div>
+
+      <footer class="partner-form__foot">
+        <button type="submit" class="btn btn--gold">Enviar Análise</button>
+      </footer>
+    </form>
   </div>
 </div>
 

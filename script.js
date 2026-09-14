@@ -594,6 +594,15 @@
       el.addEventListener('click', function () { openQuiz(el.getAttribute('data-path'), el); });
     });
 
+    // Auto-open por scroll: dispara o quiz assim que o usuário começa a
+    // navegar, mas só uma vez por sessão (respeita fechamento manual).
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 250 && !sessionStorage.getItem('quizAutoOpened')) {
+        sessionStorage.setItem('quizAutoOpened', 'true');
+        if (quiz.hidden) openQuiz(null);
+      }
+    });
+
     nextBtn.addEventListener('click', function () {
       if (quizState.stepIndex < QUESTIONS.length - 1) {
         quizState.stepIndex++;
@@ -615,6 +624,75 @@
 
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && !quiz.hidden) closeQuiz();
+    });
+  })();
+
+  /* ------------------------------------------------------------------
+     8. Seja Nosso Parceiro: modal de captação de franqueados → WhatsApp
+     ------------------------------------------------------------------ */
+  (function partnerModal() {
+    var modal = document.getElementById('partnerModal');
+    var form = document.getElementById('partner-form');
+    if (!modal || !form) return;
+
+    var overlayEl = modal.querySelector('[data-partner-close]');
+    var closeBtn = document.getElementById('partnerModalCloseBtn');
+    var lastFocusedEl = null;
+
+    var WHATSAPP_NUMBER = '5571988221221';
+
+    function openModal(triggerEl) {
+      lastFocusedEl = triggerEl || document.activeElement;
+      // Fecha o hambúrguer: no mobile o header__cta some (ver breakpoint
+      // 1480px) e esse gatilho vem de dentro do próprio menu aberto.
+      document.body.classList.remove('nav-open');
+      document.body.classList.add('js-nav-closed');
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      var firstField = form.querySelector('input, select, textarea');
+      if (firstField) firstField.focus();
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') lastFocusedEl.focus();
+    }
+
+    document.querySelectorAll('[data-open-partner-modal]').forEach(function (el) {
+      el.addEventListener('click', function () { openModal(el); });
+    });
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (overlayEl) overlayEl.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && !modal.hidden) closeModal();
+    });
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var data = new FormData(form);
+      var get = function (name) { return (data.get(name) || '').toString().trim(); };
+
+      var message =
+        '*Olá! Quero ser um parceiro/franqueado PSIGroup.*\n\n' +
+        '*Nome:* ' + get('nome') + '\n' +
+        '*WhatsApp:* ' + get('whatsapp') + '\n' +
+        '*E-mail:* ' + get('email') + '\n' +
+        '*Idade:* ' + get('idade') + '\n' +
+        '*Área de atuação:* ' + get('area') + '\n' +
+        '*Onde deseja atuar:* ' + get('onde_atuar') + '\n' +
+        '*Estado:* ' + get('uf') + '\n' +
+        '*Cidade:* ' + get('cidade') + '\n' +
+        '*Potencial de investimento:* ' + get('investimento') + '\n' +
+        '*Sobre:* ' + get('sobre');
+
+      var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
+      window.open(url, '_blank', 'noopener');
+
+      closeModal();
+      form.reset();
     });
   })();
 
