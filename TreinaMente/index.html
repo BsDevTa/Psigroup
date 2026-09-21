@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treinamentos Corporativos In Company | PSIGroup</title>
+  <meta name="description" content="Treinamentos corporativos in company e desenvolvimento de Universidades Corporativas personalizados para a realidade da sua empresa.">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="header" role="banner">
+    <div class="header__container">
+
+      <a class="header__logo-link" href="#hero" aria-label="TreinaMente - Página inicial">
+        <img class="header__logo" src="assets/img/logo-treinamente.png" alt="TreinaMente - Desenvolvimento de Pessoas">
+      </a>
+
+      <nav class="header__nav" role="navigation" aria-label="Navegação principal">
+        <button class="header__nav-toggle" type="button" aria-expanded="false" aria-controls="header-nav-list">
+          <span class="sr-only">Abrir menu</span>
+          <span class="header__nav-toggle-icon" aria-hidden="true"></span>
+        </button>
+
+        <ul class="header__nav-list font-poppins font-poppins--medium" id="header-nav-list">
+          <li class="header__nav-item"><a class="header__nav-link" href="#hero">Início</a></li>
+          <li class="header__nav-item"><a class="header__nav-link" href="#desafio-processo">Nosso Método</a></li>
+          <li class="header__nav-item"><a class="header__nav-link" href="#treinamentos">Treinamentos</a></li>
+          <li class="header__nav-item"><a class="header__nav-link" href="#universidade-corporativa">Universidade Corporativa</a></li>
+        </ul>
+      </nav>
+
+      <a
+        class="header__cta font-poppins font-poppins--bold"
+        href="https://api.whatsapp.com/send?phone=5571988221221&text=Ol%C3%A1%2C%20quero%20um%20treinamento%20para%20minha%20equipe."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Falar com um especialista
+      </a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         SEÇÃO 01 — HERO (Apresentação)
+         ============================================================ -->
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div class="hero__container">
+
+        <div class="hero__content">
+          <h1 id="hero-title" class="hero__title font-aktiv">
+            <span class="font-aktiv--bold">TREINAMENTOS</span>
+            <span class="font-aktiv--light">CORPORATIVOS IN COMPANY</span>
+          </h1>
+
+          <h2 class="hero__subtitle font-poppins font-poppins--medium">
+            Desenvolvidos para a realidade da sua empresa!
+          </h2>
+
+          <p class="hero__text font-poppins font-poppins--regular">
+            Criamos a Universidade Corporativa da sua Empresa através do nosso método/estrutura.
+            Sua equipe não precisa de mais um treinamento genérico. Precisa desenvolver as
+            competências que o seu negócio realmente precisa. Criamos treinamentos corporativos
+            personalizados, presenciais, online ou híbridos, desenvolvidos a partir dos desafios
+            da sua empresa.
+          </p>
+
+          <a
+            class="hero__cta font-poppins font-poppins--bold"
+            href="https://api.whatsapp.com/send?phone=5571988221221&text=Ol%C3%A1%2C%20quero%20um%20treinamento%20para%20minha%20equipe."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            QUERO UM TREINAMENTO PARA MINHA EQUIPE
+          </a>
+        </div>
+
+        <div class="hero__media">
+          <img class="hero__img" src="assets/img/hero.jpeg" alt="Equipe em treinamento corporativo in company">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SEÇÃO 02 — DESAFIO E PROCESSO
+         ============================================================ -->
+    <section id="desafio-processo" class="desafio" aria-labelledby="desafio-title">
+      <div class="desafio__container">
+
+        <header class="desafio__header">
+          <h2 id="desafio-title" class="desafio__title font-aktiv font-aktiv--bold">
+            Comportamento, Mentalidade e Desenvolvimento de Pessoas.
+          </h2>
+          <p class="desafio__subtitle font-poppins font-poppins--regular">
+            Treinamentos personalizados para empresas que querem desenvolver líderes, melhorar o
+            desempenho das equipes e transformar comportamento em resultado.
+            <span class="desafio__modalidades font-poppins font-poppins--medium">Presencial • Online • Híbrido</span>
+          </p>
+        </header>
+
+        <div class="desafio__grid">
+
+          <!-- Bloco de Captura (Formulário) -->
+          <div class="desafio__form-block">
+            <h3 class="desafio__form-title font-poppins font-poppins--bold">
+              Conte seu desafio. Nós estruturamos a solução!
+            </h3>
+
+            <form class="desafio__form" id="form-desafio" aria-describedby="desafio-form-hint">
+              <label class="sr-only" for="desafio-textarea">Descreva o desafio da sua empresa</label>
+              <textarea
+                class="desafio__textarea font-poppins font-poppins--regular"
+                id="desafio-textarea"
+                name="desafio"
+                rows="5"
+                placeholder="Ex: Minha equipe de liderança tem dificuldade em dar feedback e isso está gerando conflitos internos..."
+                required
+              ></textarea>
+
+              <button class="desafio__submit font-poppins font-poppins--bold" type="submit" id="btn-enviar-desafio">
+                ENVIAR MEU DESAFIO
+              </button>
+              <p id="desafio-form-hint" class="desafio__form-hint font-poppins font-poppins--regular">
+                Você será direcionado ao WhatsApp para falarmos com você.
+              </p>
+            </form>
+          </div>
+
+          <!-- Bloco de Animação / Processo (Steps) -->
+          <div class="desafio__process-block">
+            <ol class="desafio__steps" id="desafio-steps">
+              <li class="desafio__step" data-step="1">
+                <span class="desafio__step-number font-aktiv font-aktiv--bold">01</span>
+                <span class="desafio__step-text font-poppins font-poppins--medium">Entendemos o desafio</span>
+              </li>
+              <li class="desafio__step" data-step="2">
+                <span class="desafio__step-number font-aktiv font-aktiv--bold">02</span>
+                <span class="desafio__step-text font-poppins font-poppins--medium">Identificamos as competências necessárias</span>
+              </li>
+              <li class="desafio__step" data-step="3">
+                <span class="desafio__step-number font-aktiv font-aktiv--bold">03</span>
+                <span class="desafio__step-text font-poppins font-poppins--medium">Construímos o treinamento</span>
+              </li>
+              <li class="desafio__step" data-step="4">
+                <span class="desafio__step-number font-aktiv font-aktiv--bold">04</span>
+                <span class="desafio__step-text font-poppins font-poppins--medium">Aplicamos com sua equipe</span>
+              </li>
+              <li class="desafio__step" data-step="5">
+                <span class="desafio__step-number font-aktiv font-aktiv--bold">05</span>
+                <span class="desafio__step-text font-poppins font-poppins--medium">Avaliamos a experiência e os resultados</span>
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SEÇÃO 03 — MINICARDS DE TREINAMENTOS
+         ============================================================ -->
+    <section id="treinamentos" class="treinamentos" aria-labelledby="treinamentos-title">
+      <div class="treinamentos__container">
+
+        <header class="treinamentos__header">
+          <h2 id="treinamentos-title" class="treinamentos__title font-aktiv font-aktiv--bold">
+            Conheça alguns dos nossos Treinamentos com a sua Marca, para a sua Equipe:
+          </h2>
+          <p class="treinamentos__subtitle font-poppins font-poppins--regular">
+            O que podemos desenvolver na sua empresa?
+          </p>
+        </header>
+
+        <div class="treinamentos__grid">
+
+          <!-- Card 1 -->
+          <article class="treinamento-card">
+            <img class="treinamento-card__img" src="assets/img/card1.jpg" alt="CARD 1">
+            <h3 class="treinamento-card__title font-poppins font-poppins--bold">
+              COMPORTAMENTO &amp; INTELIGÊNCIA EMOCIONAL
+            </h3>
+            <ul class="treinamento-card__list font-poppins font-poppins--regular">
+              <li>Inteligência emocional</li>
+              <li>Autoconhecimento</li>
+              <li>Comunicação</li>
+              <li>Gestão de conflitos</li>
+              <li>Postura e Imagem Profissional</li>
+              <li>Autocontrole e regulação emocional</li>
+            </ul>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="treinamento-card">
+            <img class="treinamento-card__img" src="assets/img/card-02-treinamente.jpg" alt="Homem em frente ao notebook acessando a plataforma TreinaMente">
+            <h3 class="treinamento-card__title font-poppins font-poppins--bold">
+              LIDERANÇA &amp; GESTÃO
+            </h3>
+            <ul class="treinamento-card__list font-poppins font-poppins--regular">
+              <li>Contratação de Equipes</li>
+              <li>Demissão Assertiva e Humanizada</li>
+              <li>Formação de Líderes</li>
+              <li>Liderança Humanizada e Liderança Situacional</li>
+              <li>Feedback: Como aplicá-los?</li>
+              <li>Construção de Confiança X Ambientes Saudáveis e Produtivos</li>
+            </ul>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="treinamento-card">
+            <img class="treinamento-card__img" src="assets/img/card3.jpg" alt="CARD 3">
+            <h3 class="treinamento-card__title font-poppins font-poppins--bold">
+              PESSOAS &amp; CULTURA
+            </h3>
+            <ul class="treinamento-card__list font-poppins font-poppins--regular">
+              <li>Trabalho em equipe</li>
+              <li>Cultura organizacional</li>
+              <li>Engajamento</li>
+              <li>Pertencimento</li>
+              <li>Ética profissional</li>
+              <li>Clima organizacional</li>
+            </ul>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="treinamento-card">
+            <img class="treinamento-card__img" src="assets/img/card4.jpg" alt="CARD 4">
+            <h3 class="treinamento-card__title font-poppins font-poppins--bold">
+              PERFORMANCE &amp; RESULTADOS
+            </h3>
+            <ul class="treinamento-card__list font-poppins font-poppins--regular">
+              <li>Produtividade e senso de dono</li>
+              <li>Gestão do tempo e prioridades</li>
+              <li>Transformando objetivos em metas</li>
+              <li>Mentalidade orientada para resultados</li>
+              <li>Competências técnicas e comportamentais para a função</li>
+              <li>Excelência nas entregas</li>
+            </ul>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="treinamento-card">
+            <img class="treinamento-card__img" src="assets/img/card5.jpg" alt="CARD 5">
+            <h3 class="treinamento-card__title font-poppins font-poppins--bold">
+              ATENDIMENTO &amp; EXPERIÊNCIA DO CLIENTE
+            </h3>
+            <ul class="treinamento-card__list font-poppins font-poppins--regular">
+              <li>Atendimento humanizado</li>
+              <li>Comunicação com clientes</li>
+              <li>Experiência do cliente</li>
+              <li>Postura profissional</li>
+              <li>Técnicas de atendimento</li>
+              <li>Vendas e construção de relacionamento com o cliente</li>
+            </ul>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="treinamento-card">
+            <img class="treinamento-card__img" src="assets/img/card6.jpg" alt="CARD 6">
+            <h3 class="treinamento-card__title font-poppins font-poppins--bold">
+              MINDFULNESS E SAÚDE MENTAL NO TRABALHO
+            </h3>
+            <ul class="treinamento-card__list font-poppins font-poppins--regular">
+              <li>O que é Mindfulness: presença e atenção no cotidiano profissional</li>
+              <li>Ações de bem-estar e eficiência no Trabalho</li>
+              <li>Foco e Resiliência para Equipes</li>
+              <li>PNL: pensamentos, emoções e padrões de comportamento</li>
+              <li>Relações Saudáveis e Comunicação no Trabalho</li>
+              <li>Saúde Mental na Prática: ferramentas para uma rotina mais equilibrada</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SEÇÃO 04 — CUSTOMIZADOS E UNIVERSIDADE CORPORATIVA
+         ============================================================ -->
+    <section id="universidade-corporativa" class="universidade" aria-labelledby="universidade-title">
+      <div class="universidade__container">
+
+        <!-- Bloco 1: Treinamentos Customizados -->
+        <div class="universidade__block universidade__block--customizados">
+          <h2 class="universidade__block-title font-aktiv font-aktiv--bold">
+            TREINAMENTOS CUSTOMIZADOS
+          </h2>
+          <p class="universidade__block-text font-poppins font-poppins--regular">
+            Não encontrou o que procura? Nós podemos desenvolver o treinamento especificamente
+            para sua empresa.
+          </p>
+          <a
+            class="universidade__cta font-poppins font-poppins--bold"
+            href="https://api.whatsapp.com/send?phone=5571988221221&text=Ol%C3%A1%2C%20quero%20conversar%20sobre%20um%20treinamento%20customizado."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CONVERSAR COM UM ESPECIALISTA
+          </a>
+        </div>
+
+        <!-- Bloco 2: Universidade Corporativa -->
+        <div class="universidade__block universidade__block--corporativa">
+          <h2 id="universidade-title" class="universidade__block-title font-aktiv font-aktiv--bold">
+            Imagine ter uma Universidade Corporativa com a identidade da sua empresa.
+          </h2>
+          <p class="universidade__block-text font-poppins font-poppins--regular">
+            Conteúdo. Cultura. Pessoas. Tudo conectado. Sua empresa pode ter uma estrutura própria
+            de desenvolvimento, com:
+          </p>
+
+          <ul class="universidade__checklist font-poppins font-poppins--medium">
+            <li class="universidade__checklist-item">Trilhas de aprendizagem</li>
+            <li class="universidade__checklist-item">Treinamentos presenciais</li>
+            <li class="universidade__checklist-item">Conteúdos online</li>
+            <li class="universidade__checklist-item">Integração de novos colaboradores</li>
+            <li class="universidade__checklist-item">Formação de líderes</li>
+            <li class="universidade__checklist-item">Reciclagens</li>
+            <li class="universidade__checklist-item">Procedimentos internos</li>
+            <li class="universidade__checklist-item">Avaliações e Certificados</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__partner-bar">
+      <img src="assets/img/psi-group.png" alt="PSI Group">
+      <img src="assets/img/contrate-express.png" alt="Contrate Express">
+      <img src="assets/img/terceiriza-jo.png" alt="Terceiriza JO">
+      <img class="footer__partner-bar-logo--tudolimpo" src="assets/img/Tudolimpo.png" alt="Tudo Limpo">
+    </div>
+
+    <div class="footer__container">
+
+      <div class="footer__brand">
+        <img class="footer__logo" src="assets/img/logo-icon.png" alt="Logo PSIGroup">
+        <p class="footer__tagline font-poppins font-poppins--regular">
+          Ecossistema PSIGroup — Desenvolvimento humano e organizacional.
+        </p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Navegação do rodapé">
+        <ul class="footer__nav-list font-poppins font-poppins--regular">
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#desafio-processo">Nosso Método</a></li>
+          <li><a href="#treinamentos">Treinamentos</a></li>
+          <li><a href="#universidade-corporativa">Universidade Corporativa</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <a
+          class="footer__whatsapp font-poppins font-poppins--medium"
+          href="https://api.whatsapp.com/send?phone=5571988221221&text=Ol%C3%A1%2C%20quero%20falar%20sobre%20treinamentos%20corporativos."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp: (71) 98822-1221
+        </a>
+      </div>
+
+      <div class="footer__legal">
+        <p class="footer__copy font-poppins font-poppins--regular">
+          &copy; <span id="footer-year"></span> PSIGroup. Todos os direitos reservados.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Preenche o ano atual no rodapé
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Envio do formulário de "Conte seu desafio" para o WhatsApp
+    (function () {
+      var WHATSAPP_NUMBER = '5571988221221';
+      var form = document.getElementById('form-desafio');
+      var textarea = document.getElementById('desafio-textarea');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var mensagem = textarea.value.trim();
+        if (!mensagem) {
+          textarea.focus();
+          return;
+        }
+
+        var texto = 'Olá, quero contar o desafio da minha empresa: ' + mensagem;
+        var url = 'https://api.whatsapp.com/send?phone=' + WHATSAPP_NUMBER + '&text=' + encodeURIComponent(texto);
+
+        window.open(url, '_blank', 'noopener,noreferrer');
+      });
+    })();
+  </script>
+
+</body>
+</html>

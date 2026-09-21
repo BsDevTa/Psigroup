@@ -1,0 +1,1050 @@
+/* ================================================================
+   TreinaMente | PSIGroup — Landing Page
+   styles.css
+   ================================================================ */
+
+/* ----------------------------------------------------------------
+   0. GOOGLE FONTS (Poppins)
+   ---------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ----------------------------------------------------------------
+   1. VARIÁVEIS GLOBAIS
+   ---------------------------------------------------------------- */
+:root {
+  /* Cores — tema escuro/brand de alto impacto */
+  --color-primary: #369671;
+  --color-primary-dark: #2c7d5f;
+  --color-primary-light: rgba(54, 150, 113, 0.35);
+  --color-secondary: #ffffff;
+
+  --color-text: #f7fafc;
+  --color-text-secondary: #cbd5e0;
+  --color-text-on-primary: #ffffff;
+
+  --color-bg: #1a202c;
+  --color-bg-alt: #171c24;
+  --color-bg-footer: #12161d;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-card-bg: rgba(255, 255, 255, 0.05);
+  --color-card-solid: #2d3748;
+  --color-input-bg: #4a5568;
+
+  /* Tipografia — fonte única do projeto: Poppins */
+  --font-primary: 'Poppins', sans-serif;
+
+  /* Espaçamentos */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* Layout */
+  --container-width: 1200px;
+  --radius: 6px;
+  --radius-lg: 16px;
+
+  /* Efeitos */
+  --shadow-sm: 0 2px 8px rgba(26, 32, 44, 0.06);
+  --shadow-md: 0 8px 24px rgba(26, 32, 44, 0.08);
+  --shadow-primary: 0 10px 24px rgba(54, 150, 113, 0.28);
+  --transition: 0.3s ease;
+
+  /*
+    Textura de fundo — "Mente + Tecnologia" (nós/redes neurais conectados)
+    SVG fonte (200x200, tileable), antes da URL-encode, usado nas duas variantes abaixo:
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+      <g fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-opacity="OPACIDADE_LINHA">
+        <path d="M20 30L80 70L150 40M80 70L60 140L130 160L180 110L150 40M20 30L10 120L60 140M130 160L190 20"/>
+      </g>
+      <g fill="#ffffff" fill-opacity="OPACIDADE_NO">
+        <circle cx="20" cy="30" r="3"/>
+        <circle cx="80" cy="70" r="4"/>
+        <circle cx="150" cy="40" r="3"/>
+        <circle cx="60" cy="140" r="3"/>
+        <circle cx="130" cy="160" r="4"/>
+        <circle cx="180" cy="110" r="3"/>
+        <circle cx="10" cy="120" r="2.5"/>
+        <circle cx="190" cy="20" r="2.5"/>
+      </g>
+    </svg>
+
+    Variante Hero/blocos verdes: linhas brancas 0.025 / nós brancos 0.035 (marca d'água quase imperceptível sobre o verde-água).
+    Variante seções escuras: linhas brancas 0.015 / nós brancos 0.02 (apenas quebra o "chapado" do chumbo, sem competir com o texto).
+  */
+  --pattern-size: 200px;
+  --pattern-hero: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1' stroke-linecap='round' stroke-opacity='0.025'%3E%3Cpath d='M20 30L80 70L150 40M80 70L60 140L130 160L180 110L150 40M20 30L10 120L60 140M130 160L190 20'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='0.035'%3E%3Ccircle cx='20' cy='30' r='3'/%3E%3Ccircle cx='80' cy='70' r='4'/%3E%3Ccircle cx='150' cy='40' r='3'/%3E%3Ccircle cx='60' cy='140' r='3'/%3E%3Ccircle cx='130' cy='160' r='4'/%3E%3Ccircle cx='180' cy='110' r='3'/%3E%3Ccircle cx='10' cy='120' r='2.5'/%3E%3Ccircle cx='190' cy='20' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+  --pattern-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1' stroke-linecap='round' stroke-opacity='0.015'%3E%3Cpath d='M20 30L80 70L150 40M80 70L60 140L130 160L180 110L150 40M20 30L10 120L60 140M130 160L190 20'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='20' cy='30' r='3'/%3E%3Ccircle cx='80' cy='70' r='4'/%3E%3Ccircle cx='150' cy='40' r='3'/%3E%3Ccircle cx='60' cy='140' r='3'/%3E%3Ccircle cx='130' cy='160' r='4'/%3E%3Ccircle cx='180' cy='110' r='3'/%3E%3Ccircle cx='10' cy='120' r='2.5'/%3E%3Ccircle cx='190' cy='20' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ----------------------------------------------------------------
+   2. RESET E BASE
+   ---------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  background-image: var(--pattern-dark);
+  background-repeat: repeat;
+  background-size: var(--pattern-size) var(--pattern-size);
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+textarea,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+p,
+span,
+li {
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ----------------------------------------------------------------
+   3. CLASSES UTILITÁRIAS DE TIPOGRAFIA
+   ---------------------------------------------------------------- */
+/* .font-aktiv* mantidas por compatibilidade com o HTML — agora apontam para Poppins */
+.font-aktiv,
+.font-poppins {
+  font-family: var(--font-primary);
+}
+
+.font-aktiv--bold,
+.font-poppins--bold {
+  font-weight: 700;
+}
+.font-aktiv--light {
+  /* Sempre usada dentro de títulos (h1/h2/h3) — título é sempre Bold, nunca Light */
+  font-weight: 700;
+}
+
+.font-poppins--regular {
+  font-weight: 400;
+}
+.font-poppins--medium {
+  font-weight: 500;
+}
+.font-poppins--light {
+  font-weight: 300;
+}
+
+/* Container padrão reutilizável */
+.header__container,
+.hero__container,
+.desafio__container,
+.treinamentos__container,
+.universidade__container,
+.footer__container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* Botão base (CTAs em cor primária — usados sobre fundos escuros) */
+.header__cta,
+.desafio__submit,
+.universidade__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  font-weight: 700;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+  text-align: center;
+}
+
+.header__cta:hover,
+.desafio__submit:hover,
+.universidade__cta:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-primary);
+  transform: translateY(-2px);
+}
+
+/* Botão do Hero: invertido (fundo branco / texto verde-água), pois o Hero já é verde sólido */
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: var(--color-primary);
+  font-weight: 700;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+  text-align: center;
+}
+
+.hero__cta:hover {
+  background-color: #f0f2f4;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+/* ----------------------------------------------------------------
+   4. HEADER
+   ---------------------------------------------------------------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-bg); /* fundo sólido, opaco — nada passa visível por trás */
+  background-image: var(--pattern-dark);
+  background-repeat: repeat;
+  background-size: var(--pattern-size) var(--pattern-size);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  max-width: none;
+  /* Altura da navbar controlada só por min-height — não depende do
+     tamanho da logo ou da fonte dos itens do menu. Para mudar a
+     altura da navbar, ajuste só este valor. */
+  min-height: 76px;
+  padding: 0 var(--space-lg);
+}
+
+.header__logo-link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header__logo {
+  /* PNG já é transparente e recortado sem espaço vazio (ver assets/img/logo-treinamente.png) —
+     height:auto-ratio via width:auto é suficiente, sem precisar de mix-blend-mode ou transform. */
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: 0.95rem;
+}
+
+.header__nav-link {
+  position: relative;
+  display: inline-block;
+  color: var(--color-text);
+  padding: 0.25rem 0;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.header__nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width var(--transition);
+}
+
+.header__nav-link:hover {
+  color: var(--color-primary);
+}
+
+.header__nav-link:hover::after {
+  width: 100%;
+}
+
+.header__cta {
+  margin-left: var(--space-lg);
+  padding: 0.7rem 1.4rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.header__nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.5rem;
+}
+
+.header__nav-toggle-icon,
+.header__nav-toggle-icon::before,
+.header__nav-toggle-icon::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  transition: transform var(--transition);
+}
+
+.header__nav-toggle-icon::before,
+.header__nav-toggle-icon::after {
+  content: '';
+  position: relative;
+}
+
+.header__nav-toggle-icon::before {
+  top: -7px;
+}
+
+.header__nav-toggle-icon::after {
+  top: 5px;
+}
+
+/* ----------------------------------------------------------------
+   5. SEÇÃO 01 — HERO
+   ---------------------------------------------------------------- */
+.hero {
+  background-color: var(--color-primary);
+  background-image: var(--pattern-hero);
+  background-repeat: repeat;
+  background-size: var(--pattern-size) var(--pattern-size);
+  padding: var(--space-2xl) 0;
+}
+
+.hero__container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.hero__title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-md);
+}
+
+.hero__title span {
+  display: block;
+}
+
+.hero__title .font-aktiv--bold,
+.hero__title .font-aktiv--light {
+  color: #ffffff;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #ffffff;
+  margin-bottom: var(--space-md);
+}
+
+.hero__text {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #ffffff;
+  max-width: 46ch;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__cta {
+  padding: 1.1rem 2rem;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-primary);
+}
+
+.hero__media {
+  position: relative;
+}
+
+.hero__img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* ----------------------------------------------------------------
+   6. SEÇÃO 02 — DESAFIO E PROCESSO
+   ---------------------------------------------------------------- */
+.desafio {
+  background-color: var(--color-bg-alt);
+  background-image: var(--pattern-dark);
+  background-repeat: repeat;
+  background-size: var(--pattern-size) var(--pattern-size);
+  padding: var(--space-2xl) 0;
+}
+
+.desafio__header {
+  max-width: 760px;
+  margin: 0 auto var(--space-xl);
+  text-align: center;
+}
+
+.desafio__title {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.desafio__subtitle {
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  font-weight: 300;
+}
+
+.desafio__modalidades {
+  display: inline-block;
+  margin-top: var(--space-sm);
+  color: var(--color-primary);
+}
+
+.desafio__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* --- Bloco de formulário --- */
+.desafio__form-block {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-lg);
+}
+
+.desafio__form-title {
+  font-size: 1.25rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.desafio__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.desafio__textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 130px;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-input-bg);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+.desafio__textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.desafio__textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(54, 150, 113, 0.3);
+}
+
+.desafio__submit {
+  align-self: flex-start;
+  padding: 0.9rem 1.8rem;
+  font-size: 0.95rem;
+}
+
+.desafio__form-hint {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+}
+
+/* --- Bloco de processo (step-by-step) --- */
+.desafio__process-block {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-lg);
+}
+
+.desafio__steps {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.desafio__step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding-left: 0.25rem;
+}
+
+.desafio__step-number {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-text-on-primary);
+  font-size: 1rem;
+}
+
+/* Linha vertical conectando os passos */
+.desafio__step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 48px;
+  width: 2px;
+  height: calc(100% + var(--space-lg) - 48px);
+  background-color: var(--color-primary-light);
+}
+
+.desafio__step-text {
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+/* ----------------------------------------------------------------
+   7. SEÇÃO 03 — MINICARDS DE TREINAMENTOS
+   ---------------------------------------------------------------- */
+.treinamentos {
+  background-color: var(--color-bg);
+  background-image: var(--pattern-dark);
+  background-repeat: repeat;
+  background-size: var(--pattern-size) var(--pattern-size);
+  padding: var(--space-2xl) 0;
+}
+
+.treinamentos__header {
+  max-width: 760px;
+  margin: 0 auto var(--space-xl);
+  text-align: center;
+}
+
+.treinamentos__title {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.treinamentos__subtitle {
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  font-weight: 300;
+}
+
+.treinamentos__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.treinamento-card {
+  --accent-color: var(--color-primary); /* fallback — sobrescrita por :nth-child abaixo */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+/* Paleta de destaque por card — harmonizada com o verde-água primário */
+.treinamento-card:nth-child(1) { --accent-color: #10b981; } /* Comportamento — Esmeralda */
+.treinamento-card:nth-child(2) { --accent-color: #22d3ee; } /* Liderança — Cyan */
+.treinamento-card:nth-child(3) { --accent-color: #60a5fa; } /* Pessoas & Cultura — Azul Celeste */
+.treinamento-card:nth-child(4) { --accent-color: #fbbf24; } /* Performance — Dourado */
+.treinamento-card:nth-child(5) { --accent-color: #a3e635; } /* Atendimento — Mint/Verde Claro */
+.treinamento-card:nth-child(6) { --accent-color: #369671; } /* Mindfulness — Verde Primário */
+
+/* Filhos diretos sempre acima da animação da borda */
+.treinamento-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* "Laser": gradiente cônico giratório na cor de sotaque do card */
+.treinamento-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 70%, var(--accent-color) 100%);
+  animation: spinBorder 4s linear infinite;
+  z-index: 0;
+}
+
+/* "Máscara": tampa escura que só deixa 2px de neon visível na borda */
+.treinamento-card::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background-color: var(--color-card-solid);
+  border-radius: calc(var(--radius-lg) - 2px);
+  z-index: 1;
+}
+
+.treinamento-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Hover: o radar acelera */
+.treinamento-card:hover::before {
+  animation-duration: 1s;
+}
+
+@keyframes spinBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.treinamento-card__img {
+  /* Sangra até a borda do card (cancela o padding de 2rem do .treinamento-card),
+     parando 2px antes da borda pra não tampar o efeito de "laser" animado. */
+  width: calc(100% + 4rem - 4px);
+  max-width: none; /* sobrescreve o reset global "img { max-width: 100% }" que cortava o sangramento */
+  margin: calc(2px - 2rem) calc(2px - 2rem) var(--space-md) calc(2px - 2rem);
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 2px) calc(var(--radius-lg) - 2px) 0 0;
+}
+
+.treinamento-card__title {
+  font-size: 1.05rem;
+  color: var(--accent-color);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.01em;
+}
+
+.treinamento-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  counter-reset: card-items;
+}
+
+.treinamento-card__list li {
+  position: relative;
+  counter-increment: card-items;
+  padding-left: 1.8rem;
+}
+
+.treinamento-card__list li::before {
+  content: counter(card-items) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* ----------------------------------------------------------------
+   8. SEÇÃO 04 — CUSTOMIZADOS E UNIVERSIDADE CORPORATIVA
+   ---------------------------------------------------------------- */
+.universidade {
+  background-color: var(--color-bg);
+}
+
+.universidade__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0;
+  max-width: none;
+}
+
+.universidade__block {
+  padding: var(--space-2xl) var(--space-xl);
+}
+
+.universidade__block--customizados {
+  background-color: var(--color-bg-alt);
+  background-image: var(--pattern-dark);
+  background-repeat: repeat;
+  background-size: var(--pattern-size) var(--pattern-size);
+  text-align: center;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.universidade__block--customizados .universidade__block-title {
+  color: var(--color-text);
+}
+
+.universidade__block--customizados .universidade__block-text {
+  color: var(--color-text-secondary);
+  max-width: 620px;
+  margin: 0 auto var(--space-md);
+}
+
+.universidade__block--customizados .universidade__cta {
+  padding: 0.9rem 1.8rem;
+  font-size: 0.95rem;
+}
+
+.universidade__block--corporativa {
+  background-color: var(--color-primary);
+  background-image: var(--pattern-hero);
+  background-repeat: repeat;
+  background-size: var(--pattern-size) var(--pattern-size);
+  color: var(--color-text-on-primary);
+}
+
+.universidade__block--corporativa .universidade__block-title,
+.universidade__block--corporativa .universidade__block-text {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.universidade__block-title {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  margin-bottom: var(--space-md);
+}
+
+.universidade__block-text {
+  font-size: 1.05rem;
+  font-weight: 300;
+  opacity: 0.95;
+  margin-bottom: var(--space-lg);
+}
+
+.universidade__checklist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm) var(--space-xl);
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.universidade__checklist-item {
+  position: relative;
+  padding-left: 2rem;
+  font-size: 1rem;
+}
+
+.universidade__checklist-item::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ----------------------------------------------------------------
+   9. FOOTER
+   ---------------------------------------------------------------- */
+.footer {
+  background-color: var(--color-bg-footer);
+  background-image: var(--pattern-dark);
+  background-repeat: repeat;
+  background-size: var(--pattern-size) var(--pattern-size);
+  color: var(--color-secondary);
+  padding: var(--space-xl) 0 var(--space-md);
+}
+
+.footer__partner-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto var(--space-xl);
+  padding: 20px 10px;
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  margin-top: -60px;
+}
+
+.footer__partner-bar img {
+  height: 40px;
+  max-height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* O arquivo Tudolimpo.png tem uma margem transparente enorme ao redor da
+   logo real, então "contain" a deixa minúscula; usamos "cover" recortando
+   a faixa central para simular o mesmo tamanho visual das demais logos. */
+.footer__partner-bar img.footer__partner-bar-logo--tudolimpo {
+  width: 130px;
+  height: 32px;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.footer__container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer__logo {
+  height: 32px;
+  width: auto;
+  margin-bottom: var(--space-sm);
+}
+
+.footer__tagline {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-weight: 300;
+  max-width: 32ch;
+}
+
+.footer__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer__nav-list a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  transition: color var(--transition);
+}
+
+.footer__nav-list a:hover {
+  color: var(--color-primary);
+}
+
+.footer__whatsapp {
+  display: inline-block;
+  color: var(--color-secondary);
+  font-size: 0.95rem;
+  padding: 0.6rem 0;
+  transition: color var(--transition);
+}
+
+.footer__whatsapp:hover {
+  color: var(--color-primary);
+}
+
+.footer__legal {
+  grid-column: 1 / -1;
+  padding-top: var(--space-md);
+}
+
+.footer__copy {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+/* ================================================================
+   10. RESPONSIVO (MOBILE FIRST BREAKPOINT — max-width: 768px)
+   ================================================================ */
+@media (max-width: 1024px) {
+  .treinamentos__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__media {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+
+  :root {
+    --space-2xl: 3.5rem;
+    --space-xl: 2.5rem;
+  }
+
+  /* Header / Nav */
+  .header__nav-toggle {
+    display: flex;
+  }
+
+  .header__nav {
+    justify-content: space-between;
+  }
+
+  .header__nav-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    background-color: var(--color-bg);
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .header__nav-toggle[aria-expanded="true"] ~ .header__nav-list {
+    display: flex;
+  }
+
+  .header__cta {
+    display: none;
+  }
+
+  /* Hero */
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .hero__text {
+    max-width: none;
+  }
+
+  /* Desafio */
+  .desafio__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .desafio__form-block,
+  .desafio__process-block {
+    padding: var(--space-md);
+  }
+
+  /* Treinamentos */
+  .treinamentos__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Universidade Corporativa */
+  .universidade__block {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .universidade__checklist {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .footer__legal {
+    grid-column: auto;
+  }
+}
