@@ -54,11 +54,11 @@
     <section id="hero" class="hero" aria-labelledby="hero-title">
       <div class="hero__container">
 
-        <div class="hero__content" data-reveal style="--i:0">
-          <h1 id="hero-title" class="hero__title font-aktiv">
-            <span class="font-aktiv--bold">TREINAMENTOS</span>
-            <span class="font-aktiv--light">CORPORATIVOS IN COMPANY</span>
-          </h1>
+        <h1 id="hero-title" class="hero__title font-aktiv" data-reveal style="--i:0" aria-label="Bem-vindo aos seus Treinamentos Empresariais.">
+          <span class="hero__typewriter" aria-hidden="true"><span class="hero__typed hero__typed--lead"></span><span class="hero__typed hero__typed--accent"></span><span class="hero__cursor"></span></span>
+        </h1>
+
+        <div class="hero__content" data-reveal style="--i:1">
 
           <h2 class="hero__subtitle font-poppins font-poppins--medium">
             Desenvolvidos para a realidade da sua empresa!
@@ -544,6 +544,90 @@
       }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
       revealEls.forEach(function (el) { io.observe(el); });
+    })();
+
+    // Headline do Hero "Bem-vindo..." com efeito de máquina de escrever —
+    // digita uma única vez, apenas quando o Hero entra no viewport;
+    // respeita prefers-reduced-motion. O texto completo já está no
+    // aria-label do h1 (ver HTML), então este script só cuida da
+    // apresentação visual (aria-hidden).
+    (function () {
+      var section = document.getElementById('hero');
+      var wrap = section && section.querySelector('.hero__typewriter');
+      var leadEl = section && section.querySelector('.hero__typed--lead');
+      var accentEl = section && section.querySelector('.hero__typed--accent');
+      if (!section || !wrap || !leadEl || !accentEl) return;
+
+      var PART_LEAD = 'Bem-vindo aos seus';
+      var PART_ACCENT = 'Treinamentos Empresariais.';
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function showFullTextInstantly() {
+        leadEl.textContent = PART_LEAD;
+        accentEl.textContent = PART_ACCENT;
+        wrap.classList.add('is-done');
+      }
+
+      if (reduceMotion) {
+        showFullTextInstantly();
+        return;
+      }
+
+      // Digita um trecho caractere a caractere, com variação leve de
+      // velocidade (70–100ms) e pausas maiores em espaço/ponto final,
+      // para soar como alguém digitando — não um metrônomo.
+      function typePart(text, el, onDone) {
+        var i = 0;
+        var timerId = null;
+
+        function step() {
+          i += 1;
+          el.textContent = text.slice(0, i);
+          if (i === text.length) {
+            onDone();
+            return;
+          }
+          var currentChar = text[i - 1] || '';
+          var delay = 52 + Math.random() * 18;
+          if (currentChar === ' ') delay += 30;
+          if (currentChar === '.') delay += 150;
+          timerId = window.setTimeout(step, delay);
+        }
+
+        step();
+        return function cancel() {
+          if (timerId) window.clearTimeout(timerId);
+        };
+      }
+
+      var started = false;
+      function startTyping() {
+        if (started) return;
+        started = true;
+        wrap.classList.add('is-typing');
+        window.setTimeout(function () {
+          typePart(PART_LEAD, leadEl, function () {
+            typePart(PART_ACCENT, accentEl, function () {
+              wrap.classList.remove('is-typing');
+              wrap.classList.add('is-done');
+            });
+          });
+        }, 180);
+      }
+
+      if ('IntersectionObserver' in window) {
+        var typeIO = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              startTyping();
+              typeIO.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.4 });
+        typeIO.observe(section);
+      } else {
+        startTyping();
+      }
     })();
   </script>
 

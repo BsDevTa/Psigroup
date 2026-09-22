@@ -533,23 +533,78 @@ h1, h2, h3, h4, h5, h6 {
   gap: var(--space-xl);
 }
 
+.hero__content {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+}
+
 .hero__title {
-  font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+  grid-column: 1 / -1;
+  grid-row: 1;
+  width: 100vw;
+  margin-left: calc((100% - 100vw) / 2);
+  font-size: clamp(2.1rem, 4.6vw, 3.8rem);
   letter-spacing: -0.015em;
+  text-align: center;
   margin-bottom: var(--space-md);
 }
 
-.hero__title span {
+/* Cabeçalho do Hero com efeito de máquina de escrever — o texto completo
+   ("Bem-vindo aos seus Treinamentos Empresariais.") vive no aria-label do
+   h1 (sempre presente para leitor de tela); a digitação visual é
+   aria-hidden. Dispara apenas quando o Hero entra no viewport
+   (IntersectionObserver, ver script no fim do HTML). */
+.hero__typewriter {
   display: block;
+  white-space: nowrap;
 }
 
-.hero__title .font-aktiv--bold,
-.hero__title .font-aktiv--light {
+/* "Bem-vindo aos seus" — texto de apoio, translúcido */
+.hero__typed--lead {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+}
+
+/* "Treinamentos Empresariais." — trecho em destaque: branco sólido.
+   Ganha um leve reforço de opacidade/peso ao terminar de digitar —
+   microinteração sutil, sem brilho. */
+.hero__typed--accent {
+  display: inline-block;
+  margin-left: 0.28em;
   color: #ffffff;
+  font-weight: 500;
+  opacity: 0.94;
+  transition: opacity 0.6s ease;
 }
 
-.hero__title .font-aktiv--light {
-  color: rgba(255, 255, 255, 0.72);
+.hero__typewriter.is-done .hero__typed--accent {
+  opacity: 1;
+}
+
+/* Cursor — verde-claro da identidade TreinaMente (o verde-oliva escuro
+   normal do cards ficaria quase invisível sobre o fundo oliva do Hero).
+   Fino e discreto, nunca um bloco piscando estilo terminal. */
+.hero__cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.8em;
+  margin-left: 3px;
+  background: var(--tm-olive-light);
+  vertical-align: -0.05em;
+  border-radius: 1px;
+  animation: typewriterCursorBlink 0.8s ease-in-out infinite;
+}
+
+@keyframes typewriterCursorBlink {
+  0%, 45% { opacity: 1; }
+  55%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__cursor {
+    animation: none;
+  }
 }
 
 .hero__subtitle {
@@ -564,6 +619,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   color: rgba(255, 255, 255, 0.88);
   max-width: 46ch;
+  text-align: justify;
+  text-align-last: left;
   margin-bottom: var(--space-lg);
 }
 
@@ -1334,6 +1391,13 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
   }
 
+  .hero__title,
+  .hero__content,
+  .hero__media {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
   .hero__media {
     order: -1;
     width: 100%;
@@ -1402,6 +1466,13 @@ h1, h2, h3, h4, h5, h6 {
   /* Hero */
   .hero__title {
     font-size: 2rem;
+    width: auto;
+    margin-left: 0;
+    text-align: left;
+  }
+
+  .hero__typewriter {
+    white-space: normal;
   }
 
   .hero__text {
