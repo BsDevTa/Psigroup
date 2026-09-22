@@ -17,7 +17,7 @@
     <div class="header__container">
 
       <a class="header__logo-link" href="#hero" aria-label="TreinaMente - Página inicial">
-        <img class="header__logo" src="assets/img/logo-treinamente.png" alt="TreinaMente - Desenvolvimento de Pessoas">
+        <img class="header__logo" src="assets/img/logo-treinamente-header.png" alt="TreinaMente - Desenvolvimento de Pessoas">
       </a>
 
       <nav class="header__nav" role="navigation" aria-label="Navegação principal">
@@ -54,7 +54,7 @@
     <section id="hero" class="hero" aria-labelledby="hero-title">
       <div class="hero__container">
 
-        <div class="hero__content">
+        <div class="hero__content" data-reveal style="--i:0">
           <h1 id="hero-title" class="hero__title font-aktiv">
             <span class="font-aktiv--bold">TREINAMENTOS</span>
             <span class="font-aktiv--light">CORPORATIVOS IN COMPANY</span>
@@ -82,8 +82,17 @@
           </a>
         </div>
 
-        <div class="hero__media">
-          <img class="hero__img" src="assets/img/hero.jpeg" alt="Equipe em treinamento corporativo in company">
+        <div class="hero__media" data-reveal style="--i:1">
+          <div class="hero__media-frame">
+            <img class="hero__img" src="assets/img/hero.jpeg" alt="Equipe em treinamento corporativo in company">
+          </div>
+
+          <ul class="hero__journey font-poppins font-poppins--medium" aria-label="Áreas de conhecimento da Universidade Corporativa TreinaMente">
+            <li style="--i:0">Comportamento</li>
+            <li style="--i:1">Liderança</li>
+            <li style="--i:2">Cultura</li>
+            <li style="--i:3">Performance</li>
+          </ul>
         </div>
 
       </div>
@@ -95,7 +104,8 @@
     <section id="desafio-processo" class="desafio" aria-labelledby="desafio-title">
       <div class="desafio__container">
 
-        <header class="desafio__header">
+        <header class="desafio__header" data-reveal>
+          <span class="eyebrow">Nosso Método</span>
           <h2 id="desafio-title" class="desafio__title font-aktiv font-aktiv--bold">
             Comportamento, Mentalidade e Desenvolvimento de Pessoas.
           </h2>
@@ -109,7 +119,7 @@
         <div class="desafio__grid">
 
           <!-- Bloco de Captura (Formulário) -->
-          <div class="desafio__form-block">
+          <div class="desafio__form-block" data-reveal style="--i:0">
             <h3 class="desafio__form-title font-poppins font-poppins--bold">
               Conte seu desafio. Nós estruturamos a solução!
             </h3>
@@ -136,24 +146,24 @@
 
           <!-- Bloco de Animação / Processo (Steps) -->
           <div class="desafio__process-block">
-            <ol class="desafio__steps" id="desafio-steps">
-              <li class="desafio__step" data-step="1">
+            <ol class="desafio__steps" id="desafio-steps" data-reveal style="--i:1">
+              <li class="desafio__step" data-step="1" data-reveal style="--i:1">
                 <span class="desafio__step-number font-aktiv font-aktiv--bold">01</span>
                 <span class="desafio__step-text font-poppins font-poppins--medium">Entendemos o desafio</span>
               </li>
-              <li class="desafio__step" data-step="2">
+              <li class="desafio__step" data-step="2" data-reveal style="--i:2">
                 <span class="desafio__step-number font-aktiv font-aktiv--bold">02</span>
                 <span class="desafio__step-text font-poppins font-poppins--medium">Identificamos as competências necessárias</span>
               </li>
-              <li class="desafio__step" data-step="3">
+              <li class="desafio__step" data-step="3" data-reveal style="--i:3">
                 <span class="desafio__step-number font-aktiv font-aktiv--bold">03</span>
                 <span class="desafio__step-text font-poppins font-poppins--medium">Construímos o treinamento</span>
               </li>
-              <li class="desafio__step" data-step="4">
+              <li class="desafio__step" data-step="4" data-reveal style="--i:4">
                 <span class="desafio__step-number font-aktiv font-aktiv--bold">04</span>
                 <span class="desafio__step-text font-poppins font-poppins--medium">Aplicamos com sua equipe</span>
               </li>
-              <li class="desafio__step" data-step="5">
+              <li class="desafio__step" data-step="5" data-reveal style="--i:5">
                 <span class="desafio__step-number font-aktiv font-aktiv--bold">05</span>
                 <span class="desafio__step-text font-poppins font-poppins--medium">Avaliamos a experiência e os resultados</span>
               </li>
@@ -170,7 +180,8 @@
     <section id="treinamentos" class="treinamentos" aria-labelledby="treinamentos-title">
       <div class="treinamentos__container">
 
-        <header class="treinamentos__header">
+        <header class="treinamentos__header" data-reveal>
+          <span class="eyebrow">Catálogo de Formação</span>
           <h2 id="treinamentos-title" class="treinamentos__title font-aktiv font-aktiv--bold">
             Conheça alguns dos nossos Treinamentos com a sua Marca, para a sua Equipe:
           </h2>
@@ -181,10 +192,11 @@
 
         <div class="treinamentos__grid">
 
-          <!-- Card 1 -->
-          <article class="treinamento-card">
+          <!-- Card 1 — treinamento independente -->
+          <article class="treinamento-card" data-reveal style="--i:1" data-category="Comportamento">
+            <span class="treinamento-card__dot" aria-hidden="true"></span>
             <img class="treinamento-card__img" src="assets/img/card1.jpg" alt="CARD 1">
-            <h3 class="treinamento-card__title font-poppins font-poppins--bold">
+            <h3 class="treinamento-card__title font-poppins font-poppins--bold" data-category="Comportamento">
               COMPORTAMENTO &amp; INTELIGÊNCIA EMOCIONAL
             </h3>
             <ul class="treinamento-card__list font-poppins font-poppins--regular">
@@ -195,12 +207,21 @@
               <li>Postura e Imagem Profissional</li>
               <li>Autocontrole e regulação emocional</li>
             </ul>
+            <a
+              class="treinamento-card__cta font-poppins font-poppins--bold"
+              href="https://api.whatsapp.com/send?phone=5571988221221&text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20treinamento%20de%20Comportamento%20%26%20Intelig%C3%AAncia%20Emocional."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Conhecer treinamento
+            </a>
           </article>
 
-          <!-- Card 2 -->
-          <article class="treinamento-card">
+          <!-- Card 2 — treinamento independente -->
+          <article class="treinamento-card" data-reveal style="--i:2" data-category="Liderança">
+            <span class="treinamento-card__dot" aria-hidden="true"></span>
             <img class="treinamento-card__img" src="assets/img/card-02-treinamente.jpg" alt="Homem em frente ao notebook acessando a plataforma TreinaMente">
-            <h3 class="treinamento-card__title font-poppins font-poppins--bold">
+            <h3 class="treinamento-card__title font-poppins font-poppins--bold" data-category="Liderança">
               LIDERANÇA &amp; GESTÃO
             </h3>
             <ul class="treinamento-card__list font-poppins font-poppins--regular">
@@ -211,12 +232,21 @@
               <li>Feedback: Como aplicá-los?</li>
               <li>Construção de Confiança X Ambientes Saudáveis e Produtivos</li>
             </ul>
+            <a
+              class="treinamento-card__cta font-poppins font-poppins--bold"
+              href="https://api.whatsapp.com/send?phone=5571988221221&text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20treinamento%20de%20Lideran%C3%A7a%20%26%20Gest%C3%A3o."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Conhecer treinamento
+            </a>
           </article>
 
-          <!-- Card 3 -->
-          <article class="treinamento-card">
+          <!-- Card 3 — treinamento independente -->
+          <article class="treinamento-card" data-reveal style="--i:3" data-category="Cultura">
+            <span class="treinamento-card__dot" aria-hidden="true"></span>
             <img class="treinamento-card__img" src="assets/img/card3.jpg" alt="CARD 3">
-            <h3 class="treinamento-card__title font-poppins font-poppins--bold">
+            <h3 class="treinamento-card__title font-poppins font-poppins--bold" data-category="Cultura">
               PESSOAS &amp; CULTURA
             </h3>
             <ul class="treinamento-card__list font-poppins font-poppins--regular">
@@ -227,12 +257,21 @@
               <li>Ética profissional</li>
               <li>Clima organizacional</li>
             </ul>
+            <a
+              class="treinamento-card__cta font-poppins font-poppins--bold"
+              href="https://api.whatsapp.com/send?phone=5571988221221&text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20treinamento%20de%20Pessoas%20%26%20Cultura."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Conhecer treinamento
+            </a>
           </article>
 
-          <!-- Card 4 -->
-          <article class="treinamento-card">
+          <!-- Card 4 — treinamento independente -->
+          <article class="treinamento-card" data-reveal style="--i:4" data-category="Performance">
+            <span class="treinamento-card__dot" aria-hidden="true"></span>
             <img class="treinamento-card__img" src="assets/img/card4.jpg" alt="CARD 4">
-            <h3 class="treinamento-card__title font-poppins font-poppins--bold">
+            <h3 class="treinamento-card__title font-poppins font-poppins--bold" data-category="Performance">
               PERFORMANCE &amp; RESULTADOS
             </h3>
             <ul class="treinamento-card__list font-poppins font-poppins--regular">
@@ -243,12 +282,21 @@
               <li>Competências técnicas e comportamentais para a função</li>
               <li>Excelência nas entregas</li>
             </ul>
+            <a
+              class="treinamento-card__cta font-poppins font-poppins--bold"
+              href="https://api.whatsapp.com/send?phone=5571988221221&text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20treinamento%20de%20Performance%20%26%20Resultados."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Conhecer treinamento
+            </a>
           </article>
 
-          <!-- Card 5 -->
-          <article class="treinamento-card">
+          <!-- Card 5 — treinamento independente -->
+          <article class="treinamento-card" data-reveal style="--i:5" data-category="Atendimento">
+            <span class="treinamento-card__dot" aria-hidden="true"></span>
             <img class="treinamento-card__img" src="assets/img/card5.jpg" alt="CARD 5">
-            <h3 class="treinamento-card__title font-poppins font-poppins--bold">
+            <h3 class="treinamento-card__title font-poppins font-poppins--bold" data-category="Atendimento">
               ATENDIMENTO &amp; EXPERIÊNCIA DO CLIENTE
             </h3>
             <ul class="treinamento-card__list font-poppins font-poppins--regular">
@@ -259,12 +307,21 @@
               <li>Técnicas de atendimento</li>
               <li>Vendas e construção de relacionamento com o cliente</li>
             </ul>
+            <a
+              class="treinamento-card__cta font-poppins font-poppins--bold"
+              href="https://api.whatsapp.com/send?phone=5571988221221&text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20treinamento%20de%20Atendimento%20%26%20Experi%C3%AAncia%20do%20Cliente."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Conhecer treinamento
+            </a>
           </article>
 
-          <!-- Card 6 -->
-          <article class="treinamento-card">
+          <!-- Card 6 — treinamento independente -->
+          <article class="treinamento-card" data-reveal style="--i:6" data-category="Bem-estar">
+            <span class="treinamento-card__dot" aria-hidden="true"></span>
             <img class="treinamento-card__img" src="assets/img/card6.jpg" alt="CARD 6">
-            <h3 class="treinamento-card__title font-poppins font-poppins--bold">
+            <h3 class="treinamento-card__title font-poppins font-poppins--bold" data-category="Bem-estar">
               MINDFULNESS E SAÚDE MENTAL NO TRABALHO
             </h3>
             <ul class="treinamento-card__list font-poppins font-poppins--regular">
@@ -275,6 +332,14 @@
               <li>Relações Saudáveis e Comunicação no Trabalho</li>
               <li>Saúde Mental na Prática: ferramentas para uma rotina mais equilibrada</li>
             </ul>
+            <a
+              class="treinamento-card__cta font-poppins font-poppins--bold"
+              href="https://api.whatsapp.com/send?phone=5571988221221&text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20treinamento%20de%20Mindfulness%20e%20Sa%C3%BAde%20Mental%20no%20Trabalho."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Conhecer treinamento
+            </a>
           </article>
 
         </div>
@@ -288,7 +353,7 @@
       <div class="universidade__container">
 
         <!-- Bloco 1: Treinamentos Customizados -->
-        <div class="universidade__block universidade__block--customizados">
+        <div class="universidade__block universidade__block--customizados" data-reveal>
           <h2 class="universidade__block-title font-aktiv font-aktiv--bold">
             TREINAMENTOS CUSTOMIZADOS
           </h2>
@@ -306,26 +371,31 @@
           </a>
         </div>
 
-        <!-- Bloco 2: Universidade Corporativa -->
+        <!-- Bloco 2: Universidade Corporativa — "campus digital": trilha/painel sobreposto -->
         <div class="universidade__block universidade__block--corporativa">
-          <h2 id="universidade-title" class="universidade__block-title font-aktiv font-aktiv--bold">
-            Imagine ter uma Universidade Corporativa com a identidade da sua empresa.
-          </h2>
-          <p class="universidade__block-text font-poppins font-poppins--regular">
-            Conteúdo. Cultura. Pessoas. Tudo conectado. Sua empresa pode ter uma estrutura própria
-            de desenvolvimento, com:
-          </p>
+          <div class="universidade__container-inner">
+            <div class="universidade__corporativa-text" data-reveal style="--i:0">
+              <span class="eyebrow">Campus Digital</span>
+              <h2 id="universidade-title" class="universidade__block-title font-aktiv font-aktiv--bold">
+                Imagine ter uma Universidade Corporativa com a identidade da sua empresa.
+              </h2>
+              <p class="universidade__block-text font-poppins font-poppins--regular">
+                Conteúdo. Cultura. Pessoas. Tudo conectado. Sua empresa pode ter uma estrutura própria
+                de desenvolvimento, com:
+              </p>
+            </div>
 
-          <ul class="universidade__checklist font-poppins font-poppins--medium">
-            <li class="universidade__checklist-item">Trilhas de aprendizagem</li>
-            <li class="universidade__checklist-item">Treinamentos presenciais</li>
-            <li class="universidade__checklist-item">Conteúdos online</li>
-            <li class="universidade__checklist-item">Integração de novos colaboradores</li>
-            <li class="universidade__checklist-item">Formação de líderes</li>
-            <li class="universidade__checklist-item">Reciclagens</li>
-            <li class="universidade__checklist-item">Procedimentos internos</li>
-            <li class="universidade__checklist-item">Avaliações e Certificados</li>
-          </ul>
+            <ul class="universidade__checklist font-poppins font-poppins--medium" data-reveal style="--i:1">
+              <li class="universidade__checklist-item">Trilhas de aprendizagem</li>
+              <li class="universidade__checklist-item">Treinamentos presenciais</li>
+              <li class="universidade__checklist-item">Conteúdos online</li>
+              <li class="universidade__checklist-item">Integração de novos colaboradores</li>
+              <li class="universidade__checklist-item">Formação de líderes</li>
+              <li class="universidade__checklist-item">Reciclagens</li>
+              <li class="universidade__checklist-item">Procedimentos internos</li>
+              <li class="universidade__checklist-item">Avaliações e Certificados</li>
+            </ul>
+          </div>
         </div>
 
       </div>
@@ -347,7 +417,7 @@
     <div class="footer__container">
 
       <div class="footer__brand">
-        <img class="footer__logo" src="assets/img/logo-icon.png" alt="Logo PSIGroup">
+        <img class="footer__logo" src="assets/img/logo-psigroup-full.png" alt="PSIGroup — Gente certa, no lugar certo.">
         <p class="footer__tagline font-poppins font-poppins--regular">
           Ecossistema PSIGroup — Desenvolvimento humano e organizacional.
         </p>
@@ -406,6 +476,74 @@
 
         window.open(url, '_blank', 'noopener,noreferrer');
       });
+    })();
+
+    // Menu mobile (hambúrguer) — abre/fecha e fecha ao navegar ou pressionar Esc
+    (function () {
+      var toggle = document.querySelector('.header__nav-toggle');
+      var navList = document.getElementById('header-nav-list');
+      if (!toggle || !navList) return;
+
+      function setOpen(open) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      toggle.addEventListener('click', function () {
+        setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+      });
+
+      navList.addEventListener('click', function (event) {
+        if (event.target.closest('a')) setOpen(false);
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') setOpen(false);
+      });
+    })();
+
+    // Header compacto ao rolar a página
+    (function () {
+      var header = document.querySelector('.header');
+      if (!header) return;
+
+      var ticking = false;
+      function updateHeader() {
+        header.classList.toggle('is-scrolled', window.scrollY > 12);
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(updateHeader);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      updateHeader();
+    })();
+
+    // Revelação progressiva no scroll (jornada visual) — respeita prefers-reduced-motion
+    (function () {
+      var revealEls = document.querySelectorAll('[data-reveal]');
+      if (!revealEls.length) return;
+
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduceMotion || !('IntersectionObserver' in window)) {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+      revealEls.forEach(function (el) { io.observe(el); });
     })();
   </script>
 
